@@ -1,7 +1,3 @@
-" Name this file .vimrc (the dot is important) and put it in your home directory
-" You can also get a copy (on hornet) by using the following command:
-"     cp ~kogorman/public/vimrc ~/.vimrc
-
 " GENERAL OPTIONS
 behave xterm
 set viminfo='20,\"500,%   " ' Maximum number of previously edited files for which the marks
