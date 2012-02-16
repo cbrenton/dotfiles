@@ -55,6 +55,13 @@ set path=~/Code/**     " sets path to the Code directory
 " Current line highlight
 set cursorline
 
+" Vim-Powerline configuration.
+set laststatus=2     " make statusbar appear in all windows
+let g:Powerline_symbols = 'fancy'      " use fancy symbols
+
+" Set backspace behavior.
+set backspace=2
+
 filetype plugin indent on
 
 "  Tab Clears up formatting by doing the following:
