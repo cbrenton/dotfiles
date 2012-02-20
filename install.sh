@@ -1,29 +1,36 @@
 #!/bin/bash
-if [ -f $HOME/.vimrc]
+if [ -e $HOME/.vimrc ]
 then
-   mv $HOME/.vimrc $HOME/.vimrc.old
+   if [ -h $HOME/.vimrc ]
+   then
+      rm $HOME/.vimrc
+      echo "Removed symbolic link for .vimrc."
+   else
+      echo "vimrc not a symlink."
+      mv $HOME/.vimrc $HOME/.vimrc.old
+   fi
 fi
 ln -s ./vimrc $HOME/.vimrc
 
-if [ -d $HOME/.vim]
+if [ -d $HOME/.vim ]
 then
    mv $HOME/.vim $HOME/.vim.old
 fi
 ln -s ./vim $HOME/.vim
 
-if [ -f $HOME/.zshrc]
+if [ -e $HOME/.zshrc ]
 then
    mv $HOME/.zshrc $HOME/.zshrc.old
 fi
 ln -s ./zshrc $HOME/.zshrc
 
-if [ -f $HOME/.gitconfig]
+if [ -e $HOME/.gitconfig ]
 then
    mv $HOME/.gitconfig $HOME/.gitconfig.old
 fi
 ln -s ./gitconfig $HOME/.gitconfig
 
-if [ -f $HOME/.Xresources]
+if [ -e $HOME/.Xresources ]
 then
    mv $HOME/.Xresources $HOME/.Xresources.old
 fi
