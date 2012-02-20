@@ -28,6 +28,7 @@ then
    mv $HOME/.Xresources $HOME/.Xresources.old
 fi
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
+xrdb $HOME/.Xresources
 
 if [ -d $HOME/.oh-my-zsh ]
 then
