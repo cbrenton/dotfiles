@@ -66,6 +66,17 @@ alias reddit-cli=" reddit-cli"
 alias t="todo.sh -d ~/.todo/todo.cfg"
 alias rez="source ~/.zshrc"
 alias zed="vim ~/.zshrc"
+alias pingu="ping -c 4 www.google.com"
+#alias vim="nocorrect vim"
+#alias sudo="sudo "
+alias sudo="nocorrect sudo"
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias l='ls'
+alias cl='clear'
+alias x='exit'
+alias q='exit'
+
 
 notes()
 {
