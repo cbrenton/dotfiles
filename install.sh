@@ -23,6 +23,12 @@ then
 fi
 ln -sf $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 
+if [ -e $HOME/.xmodmap ] && [ ! -L $HOME/.xmodmap ]
+then
+   mv $HOME/.xmodmap $HOME/.xmodmap.old
+fi
+ln -sf $HOME/.dotfiles/xmodmap $HOME/.xmodmap
+
 if [ -e $HOME/.Xresources ] && [ ! -L $HOME/.Xresources ]
 then
    mv $HOME/.Xresources $HOME/.Xresources.old
