@@ -40,6 +40,11 @@ URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 !------------------------------------------------------------------------------
+! urxvt home/end
+URxvt*keysym.Home: \033[1~
+URxvt*keysym.End: \033[4~
+
+!------------------------------------------------------------------------------
 ! xterm
 XTerm*background:  #1e1e1e
 XTerm*foreground:  white
