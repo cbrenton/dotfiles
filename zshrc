@@ -2,6 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 
 export PATH=$PATH:/usr/local/bin/reddit-cli
+export EDITOR=vim
+export GIT_EDITOR=vim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/

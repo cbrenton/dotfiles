@@ -1,16 +1,37 @@
 #!/bin/bash
-mv $HOME/.vimrc $HOME/.vimrc.old
+if [ -f $HOME/.vimrc]
+then
+   mv $HOME/.vimrc $HOME/.vimrc.old
+fi
 ln -s ./vimrc $HOME/.vimrc
-mv $HOME/.vim $HOME/.vim.old
+
+if [ -d $HOME/.vim]
+then
+   mv $HOME/.vim $HOME/.vim.old
+fi
 ln -s ./vim $HOME/.vim
-mv $HOME/.zshrc $HOME/.zshrc.old
+
+if [ -f $HOME/.zshrc]
+then
+   mv $HOME/.zshrc $HOME/.zshrc.old
+fi
 ln -s ./zshrc $HOME/.zshrc
-mv $HOME/.gitconfig $HOME/.gitconfig.old
+
+if [ -f $HOME/.gitconfig]
+then
+   mv $HOME/.gitconfig $HOME/.gitconfig.old
+fi
 ln -s ./gitconfig $HOME/.gitconfig
-mv $HOME/.Xresources $HOME/.Xresources.old
+
+if [ -f $HOME/.Xresources]
+then
+   mv $HOME/.Xresources $HOME/.Xresources.old
+fi
 ln -s ./Xresources $HOME/.Xresources
+
 if [ -d $HOME/.oh-my-zsh ]
 then
+   mv $HOME/.oh-my-zsh/themes/mine.zsh-theme $HOME/.oh-my-zsh/themes/mine.zsh-theme.old
    ln -s ./mine.zsh-theme $HOME/.oh-my-zsh/themes/mine.zsh-theme
 else
    echo "Could not install mine.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
