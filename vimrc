@@ -94,5 +94,11 @@ au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
+" Easy split navigation.
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
 " Use Pathogen.
 call pathogen#infect()
