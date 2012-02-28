@@ -2,6 +2,8 @@
 ZSH=$HOME/.oh-my-zsh
 
 export PATH=$PATH:/usr/local/bin/reddit-cli
+export EDITOR=vim
+export GIT_EDITOR=vim
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -66,6 +68,17 @@ alias reddit-cli=" reddit-cli"
 alias t="todo.sh -d ~/.todo/todo.cfg"
 alias rez="source ~/.zshrc"
 alias zed="vim ~/.zshrc"
+alias pingu="ping -c 4 www.google.com"
+#alias vim="nocorrect vim"
+#alias sudo="sudo "
+alias sudo="nocorrect sudo"
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias l='ls'
+alias cl='clear'
+alias x='exit'
+alias q='exit'
+
 
 notes()
 {

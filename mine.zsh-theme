@@ -8,7 +8,10 @@ ZSH_THEME_GIT_PROMPT_CLEAN=""
 BAT_CHARGE='/bin/batcharge.py'
 
 function battery_charge {
-   echo `$BAT_CHARGE` 2>/dev/null
+   if [ ! $OSTYPE = 'linux-gnu' ]
+   then
+      `$BAT_CHARGE` 2>/dev/null
+   fi
 }
 
 # ⁖ ⁘ ⁙ ⁛ ⁜ ∵ ∷
