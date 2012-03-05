@@ -10,7 +10,6 @@ export GIT_EDITOR=vim
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mine"
-#ZSH_THEME="random"
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' hosts off
@@ -18,13 +17,10 @@ zstyle ':completion:*' use-cache on
 zstyle ':completion:*' cache-path ~/.zsh/cache
 
 # Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
 # DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
 
 # Uncomment following line if you want to disable autosetting terminal title.
 # DISABLE_AUTO_TITLE="true"
@@ -48,10 +44,11 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin
+export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
 # My code directory.
-export MY_CODE_DIR=/home/chris/Code
+#export MY_CODE_DIR=/home/chris/Code
+export MY_CODE_DIR=~/Code
 # Exclude directories from gfind queries.
 export GFIND_EXCLUDE="3P:Deprecated"
 
@@ -66,11 +63,10 @@ alias c="ssh cbrenton@cominor.com"
 alias vogon="ssh cbrenton@vogon.csc.calpoly.edu"
 alias reddit-cli=" reddit-cli"
 alias t="todo.sh -d ~/.todo/todo.cfg"
-alias rez="source ~/.zshrc"
 alias zed="vim ~/.zshrc"
+alias rez="source ~/.zshrc"
+alias ved="vim ~/.vimrc"
 alias pingu="ping -c 4 www.google.com"
-#alias vim="nocorrect vim"
-#alias sudo="sudo "
 alias sudo="nocorrect sudo"
 alias ll='ls -lh'
 alias la='ls -lhA'
@@ -78,7 +74,6 @@ alias l='ls'
 alias cl='clear'
 alias x='exit'
 alias q='exit'
-
 
 notes()
 {

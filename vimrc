@@ -24,7 +24,9 @@ set wrap                " whether to wrap lines
 set showbreak=+++\ \
 " set number      " number lines
 set nocompatible
-set incsearch
+" Highlight search terms...
+set hlsearch
+set incsearch " ...dynamically as they are typed.
 set showmatch
 set backspace=1
 
@@ -62,9 +64,32 @@ let g:Powerline_symbols = 'fancy'      " use fancy symbols
 " Set backspace behavior.
 set backspace=2
 
+" Place temporary files in a single location, rather than the current
+" directory.
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Set leader to something reasonable.
+let mapleader = ","
+
+" Make tabs and trailing spaces visible when requested.
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
+
+" Make <leader>h turn off highlights from the last search.
+nmap <leader>h :nohlsearch<CR>
+
+" Make <leader>v open .vimrc in another tab for editing.
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
+" Source the vimrc file after saving it
+if has("autocmd")
+   autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 filetype plugin indent on
 
-"  Tab Clears up formatting by doing the following:
+"  Tab Clear up formatting by doing the following:
 "  Ensure UNIX formatting (no CR chars, NL after the last line).
 "  Insert a tab at the end of the current line (to avoid errors in next
 "      step).
