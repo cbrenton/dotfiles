@@ -36,13 +36,13 @@ fi
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
-if [ -d $HOME/.oh-my-zsh ]
+if [ -d $HOME/.omz ]
 then
-   if [ ! -L $HOME/.oh-my-zsh/themes/mine.zsh-theme ]
+   if [ -e $HOME/.omz/themes/mine.zsh-theme ] && [ ! -L $HOME/.omz/themes/mine.zsh-theme ]
    then
-      mv $HOME/.oh-my-zsh/themes/mine.zsh-theme $HOME/.oh-my-zsh/themes/mine.zsh-theme.old
+      mv $HOME/.omz/themes/mine.zsh-theme.old
    fi
-   ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/.oh-my-zsh/themes/mine.zsh-theme
+   ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/.omz/themes/mine.zsh-theme
 else
    echo "Could not install mine.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
 fi

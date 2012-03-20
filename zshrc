@@ -1,12 +1,27 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+autoload omz
 
-export PATH=$PATH:/usr/local/bin/reddit-cli
+plugins=(archlinux git tmux)
+
+zstyle :omz:style theme mine
+zstyle ':omz:plugins:*' autostart on
+# Comment out the following line if you wish for every z shell.
+zstyle :omz:plugins:tmux autostart off
+# cmd, t irc will launch irssi inside a tmux session named irc.
+zstyle :omz:plugins:tmux:cmd irc irssi
+# dir, t code will launch a shell inside of tmux in $HOME/code.
+zstyle :omz:plugins:tmux:dir code $HOME/code
+
+omz init
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/.omz
+
+export PATH=$PATH
 export EDITOR=vim
 export GIT_EDITOR=vim
 
 # Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
+# Look in $HOME/.omz/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="mine"
@@ -14,16 +29,10 @@ ZSH_THEME="mine"
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' hosts off
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path $HOME/.zsh/cache
 
 # Set to this to use case-sensitive completion
 CASE_SENSITIVE="true"
-
-# Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # Uncomment following line if you want red dots to be displayed while waiting for completion
 COMPLETION_WAITING_DOTS="true"
@@ -37,35 +46,23 @@ setopt hist_no_functions
 setopt no_hist_beep
 setopt hist_save_no_dups
 
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git)
-
-source $ZSH/oh-my-zsh.sh
-
 # Customize to your needs...
-export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+# TODO: OS X only?
+#export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 
-# My code directory.
-#export MY_CODE_DIR=/home/chris/Code
-export MY_CODE_DIR=~/Code
 # Exclude directories from gfind queries.
 export GFIND_EXCLUDE="3P:Deprecated"
-
-# Use -j 3 by default for make with homebrew.
-export HOMEBREW_MAKE_JOBS=3
 
 # Todo-txt will use the ls command if no command is specified.
 export TODOTXT_DEFAULT_ACTION=ls
 
-alias sup="updateCodeDirs.sh"
-alias c="ssh cbrenton@cominor.com"
 alias vogon="ssh cbrenton@vogon.csc.calpoly.edu"
 alias reddit-cli=" reddit-cli"
-alias t="todo.sh -d ~/.todo/todo.cfg"
-alias zed="vim ~/.zshrc"
-alias rez="source ~/.zshrc"
-alias ved="vim ~/.vimrc"
+alias t="todo.sh -d $HOME/.todo/todo.cfg"
+alias zed="vim $HOME/.zshrc"
+alias rez="source $HOME/.zshrc"
+alias ved="vim $HOME/.vimrc"
+alias rex="xrdb $HOME/.Xresources"
 alias pingu="ping -c 4 www.google.com"
 alias sudo="nocorrect sudo"
 alias ll='ls -lh'
@@ -78,16 +75,16 @@ alias q='exit'
 notes()
 {
    if [[ $# -eq 1 ]]; then
-      if [[ ! -d ~/Documents/$1 ]]; then
+      if [[ ! -d $HOME/Documents/$1 ]]; then
          echo "Directory $1 does not exist."
       else
          # If notes.txt exists, add a newline before inserting the date.
-         if [[ -f ~/Documents/$1/notes.txt ]]; then
-            echo >> ~/Documents/$1/notes.txt
+         if [[ -f $HOME/Documents/$1/notes.txt ]]; then
+            echo >> $HOME/Documents/$1/notes.txt
          fi
-         date "+%Y-%m-%d" | boxes -d shell >> ~/Documents/$1/notes.txt
-         echo >> ~/Documents/$1/notes.txt
-         vim ~/Documents/$1/notes.txt
+         date "+%Y-%m-%d" | boxes -d shell >> $HOME/Documents/$1/notes.txt
+         echo >> $HOME/Documents/$1/notes.txt
+         vim $HOME/Documents/$1/notes.txt
       fi
    else
       # If notes.txt exists, add a newline before inserting the date.
@@ -103,10 +100,10 @@ notes()
 review()
 {
    if [[ $# -eq 1 ]]; then
-      if [[ ! -d ~/Documents/$1 ]]; then
+      if [[ ! -d $HOME/Documents/$1 ]]; then
          echo "Directory $1 does not exist."
       else
-         vim ~/Documents/$1/notes.txt
+         vim $HOME/Documents/$1/notes.txt
       fi
    else
       # If notes.txt exists, edit it.

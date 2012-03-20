@@ -22,6 +22,34 @@ URxvt.color13: #ad7fa8
 URxvt.color14: #34e2e2
 URxvt.color15: #d4d4d4
 
+!URxvt*background: #161616
+!URxvt.cursorColor: #FDA53C
+
+!!black
+!URxvt*color0: #222222
+!URxvt*color8: #666666
+!!red
+!URxvt*color1: #E84F4F
+!URxvt*color9: #D23D3D
+!!green
+!URxvt*color2: #B7CE42
+!URxvt*color10: #BDE077
+!!yellow
+!URxvt*color3: #FEA63C
+!URxvt*color11: #FFE863
+!!blue
+!URxvt*color4: #66AABB
+!URxvt*color12: #AACCBB
+!!magenta
+!URxvt*color5: #B7416E
+!URxvt*color13: #E16A98
+!!cyan
+!URxvt*color6: #6D878D
+!URxvt*color14: #42717B
+!!white
+!URxvt*color7: #DDDDDD
+!URxvt*color15: #CCCCCC
+
 !------------------------------------------------------------------------------
 ! u r x v t
 
@@ -34,10 +62,15 @@ URxvt.scrollColor:      #000000
 
 !------------------------------------------------------------------------------
 ! urxvt copy/paste
-URxvt.perl-ext-common: ...,clipboard
+URxvt.perl-ext-common: default,tabbed,clipboard,fullscreen
+URxvt.tabbed.tabbar-fg: 7
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 7
+URxvt.tabbed.tab-bg: 4
 URxvt.keysym.M-c:   perl:clipboard:copy
 URxvt.keysym.M-v:   perl:clipboard:paste
 URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+URxvt.keysym.F11:   perl:fullscreen:switch
 
 !------------------------------------------------------------------------------
 ! urxvt home/end
