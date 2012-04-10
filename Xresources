@@ -55,11 +55,14 @@ URxvt.color15: #d4d4d4
 
 URxvt.geometry:         84x27  
 URxvt.font:             xft:ProggyCleanTTSZ:size=12:antialias=false
+!URxvt.font:             xft:Monaco for Powerline:size=9
 !URxvt.font:             xft:Terminus-Powerline:size=8
 URxvt.urlLauncher:      chromium 
 URxvt.scrollBar:        false
 URxvt.scrollBar_right:  true
 URxvt.scrollColor:      #000000
+URxvt.cursorUnderline:  true
+URxvt.underlineColor:   green
 
 !------------------------------------------------------------------------------
 ! urxvt copy/paste
