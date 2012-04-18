@@ -1,7 +1,8 @@
-" GENERAL OPTIONS
+" General options
 behave xterm
-set viminfo='20,\"500,%   " ' Maximum number of previously edited files for which the marks
-"   are remembered.
+set viminfo='20,\"500,%
+" ' Maximum number of previously edited files for
+"   which the marks are remembered.
 " " Maximum number of lines saved for each register.
 " % When included, save and restore the buffer list.  If Vim is
 "   started with a file name argument, the buffer list is not
@@ -11,58 +12,49 @@ set viminfo='20,\"500,%   " ' Maximum number of previously edited files for whic
 "   to the viminfo file.
 set history=500      " keep {number} lines of command line history
 
-" TAB HANDLING, C program formatting:
-set tabstop=8      " ts, number of spaces that a tab *in an input file* is equivalent to
-set softtabstop=3       "     number of spaces that a tab *pressed by the user* is equivalent to
-set shiftwidth=3   " sw, number of spaces shifted left and right when issuing << and >>
-"  commands
-set expandtab           " don't output tabs; replace with spaces.
-set autoindent          " follow current indentation
-set smartindent         " obey brace-indentation rules
-set wrap                " whether to wrap lines
-" Make breaks more obvious
-set showbreak=+++\ \
-" set number      " number lines
-set nocompatible
-" Highlight search terms...
-set hlsearch
-set incsearch " ...dynamically as they are typed.
-set showmatch
-set backspace=1
+" Tabs
+set shiftwidth=3
+set softtabstop=3       " spaces per tab press
+set tabstop=8           " spaces used to represent tab characters in a file
 
-set ignorecase
-set smartcase
+" General {
+   set autoindent          " follow current indentation
+   set backspace=2         " let backspace delete any text, including newlines
+   set cindent
+   set cinoptions=:0,p0,t0
+   set cinwords=if,unless,else,while,until,do,for,switch,case
+   set cursorline          " current line highlight
+   set expandtab           " don't output tabs; replace with spaces
+   set formatoptions=tcqr
+   set hlsearch            " highlight search terms
+   set ignorecase          " ignore capitalization
+   set incsearch           " highlight search terms as they are typed
+   set laststatus=2        " make Powerline statusbar appear in all windows
+   set nocompatible
+   set number              " turn on line numbers
+   set path=~/Code/**      " sets path to the Code directory
+   set ruler
+   set showbreak=+++\ \    " make breaks more obvious
+   set showcmd             " show commands in status line when typing
+   set showmatch
+   set showmode            " show which mode (insert, replace, visual)
+   set smartcase           " don't ignore case for capital letters
+   set smartindent         " obey brace-indentation rules
+   set title
+   set t_Co=256            " use 256 color mode
+   set wildmenu
+   set wrap                " wrap lines
+" }
 
-syntax on
-set cinoptions=:0,p0,t0
-set cinwords=if,unless,else,while,until,do,for,switch,case
-set formatoptions=tcqr
-set cindent
+syntax on                  " indentation
 
-" VIM DISPLAY OPTIONS
-set showmode      " show which mode (insert, replace, visual)
-set ruler
-set title
-set showcmd      " show commands in status line when typing
-set wildmenu
-
-" Coloring
-set t_Co=256
 colorscheme molokai
+
+" Vim-Powerline configuration
+let g:Powerline_symbols = 'fancy'      " use fancy symbols
 
 " Allows non-root user to save write-protected files.
 cmap w!! %!sudo tee > /dev/null %
-set path=~/Code/**     " sets path to the Code directory
-
-" Current line highlight
-set cursorline
-
-" Vim-Powerline configuration.
-set laststatus=2     " make statusbar appear in all windows
-let g:Powerline_symbols = 'fancy'      " use fancy symbols
-
-" Set backspace behavior.
-set backspace=2
 
 " Place temporary files in a single location, rather than the current
 " directory.
@@ -110,8 +102,6 @@ filetype plugin indent on
 :ab cmain <cr>int main(int argc, char *argv[]) {<cr>return 0;<cr><bs>}<cr><esc>kkO<tab>   <esc>
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
-" Turn on line numbers:
-set number
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 

@@ -56,7 +56,7 @@ export GFIND_EXCLUDE="3P:Deprecated"
 # Todo-txt will use the ls command if no command is specified.
 export TODOTXT_DEFAULT_ACTION=ls
 
-alias vogon="ssh cbrenton@vogon.csc.calpoly.edu"
+alias vogon="ssh cbrenton@unix1.csc.calpoly.edu"
 alias reddit-cli=" reddit-cli"
 alias t="todo.sh -d $HOME/.todo/todo.cfg"
 alias zed="vim $HOME/.zshrc"
