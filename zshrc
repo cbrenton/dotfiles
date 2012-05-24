@@ -18,12 +18,7 @@ case $OSTYPE in
       ;;
 esac
 
-if [ $OS = "arch" ]
-then
-   OMZDIR=".omz"
-else
-   OMZDIR=".oh-my-zsh"
-fi
+OMZDIR=".oh-my-zsh"
 
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/$OMZDIR
@@ -48,20 +43,10 @@ export GIT_EDITOR=vim
 # Look in $HOME/.omz/themes/ or $HOME/.oh-my-zsh/themes.
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-if [ $OS = "arch" ]
-then
-   zstyle :omz:style theme mine
-else
-   ZSH_THEME="mine"
-fi
+ZSH_THEME="mine"
 
 # Initialize oh-my-zsh.
-if [ $OS = "arch" ]
-then
-   omz init
-else
-   source $ZSH/oh-my-zsh.sh
-fi
+source $ZSH/oh-my-zsh.sh
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' hosts off
