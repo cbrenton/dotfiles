@@ -9,7 +9,10 @@ if [ -d $HOME/.vim ] && [ ! -L $HOME/.vim ]
 then
    mv $HOME/.vim $HOME/.vim.old
 fi
-ln -sf $HOME/.dotfiles/vim $HOME/.vim
+if [ ! -L $HOME/.vim ]
+then
+   ln -sf $HOME/.dotfiles/vim $HOME/.vim
+fi
 
 if [ -e $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]
 then
@@ -37,7 +40,7 @@ ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
 FOUND=false
-for OMZ in ".omz", ".oh-my-zsh"
+for OMZ in ".oh-my-zsh", ".omz"
 do
    if [ -d $HOME/$OMZ ]
    then
