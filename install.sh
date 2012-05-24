@@ -36,14 +36,23 @@ fi
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
-if [ -d $HOME/.omz ]
-then
-   if [ -e $HOME/.omz/themes/mine.zsh-theme ] && [ ! -L $HOME/.omz/themes/mine.zsh-theme ]
+FOUND=false
+for OMZ in ".omz", ".oh-my-zsh"
+do
+   if [ -d $HOME/$OMZ ]
    then
-      mv $HOME/.omz/themes/mine.zsh-theme.old
+      FOUND=true
+      if [ -e $HOME/$OMZ/themes/mine.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/mine.zsh-theme ]
+      then
+         mv $HOME/$OMZ/themes/mine.zsh-theme.old
+      fi
+      ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/$OMZ/themes/mine.zsh-theme
+      break
    fi
-   ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/.omz/themes/mine.zsh-theme
-else
+done
+if [ ! $FOUND ]
+then
    echo "Could not install mine.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
 fi
+
 echo "If this is an Arch box running OpenBox and Xfce4, install xinitrc yourself."

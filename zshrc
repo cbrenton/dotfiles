@@ -1,8 +1,37 @@
+case $OSTYPE in
+   darwin*)
+      # Mac.
+      OS="osx"
+      ;;
+   linux-gnu)
+      if [ -f /etc/arch-release ]
+      then
+         OS="arch"
+      elif [ -f /etc/debian_version ]
+      then
+         OS="debian"
+      elif [ -f /etc/redhat-release ]
+      then
+         OS="redhat"
+      fi
+      command -v "lsb_release" >/dev/null && OS=$(lsb_release -si | tr '[:upper:]' '[:lower:]')
+      ;;
+esac
+
+if [ $OS = "arch" ]
+then
+   OMZDIR=".omz"
+else
+   OMZDIR=".oh-my-zsh"
+fi
+
+# Path to your oh-my-zsh configuration.
+ZSH=$HOME/$OMZDIR
+
 autoload omz
 
 plugins=(archlinux git tmux)
 
-zstyle :omz:style theme mine
 zstyle ':omz:plugins:*' autostart on
 # Comment out the following line if you wish for every z shell.
 zstyle :omz:plugins:tmux autostart off
@@ -11,20 +40,28 @@ zstyle :omz:plugins:tmux:cmd irc irssi
 # dir, t code will launch a shell inside of tmux in $HOME/code.
 zstyle :omz:plugins:tmux:dir code $HOME/code
 
-omz init
-
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.omz
-
 export PATH=$PATH
 export EDITOR=vim
 export GIT_EDITOR=vim
 
 # Set name of the theme to load.
-# Look in $HOME/.omz/themes/
+# Look in $HOME/.omz/themes/ or $HOME/.oh-my-zsh/themes.
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mine"
+if [ $OS = "arch" ]
+then
+   zstyle :omz:style theme mine
+else
+   ZSH_THEME="mine"
+fi
+
+# Initialize oh-my-zsh.
+if [ $OS = "arch" ]
+then
+   omz init
+else
+   source $ZSH/oh-my-zsh.sh
+fi
 
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' hosts off
@@ -47,8 +84,11 @@ setopt no_hist_beep
 setopt hist_save_no_dups
 
 # Customize to your needs...
-# TODO: OS X only?
-#export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+# OS X only.
+if [ $OS = "osx" ]
+then
+   export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+fi
 
 # Exclude directories from gfind queries.
 export GFIND_EXCLUDE="3P:Deprecated"
@@ -119,37 +159,37 @@ review()
 }
 ## ARCHIVE EXTRACTOR #{{{
 extract() {
-    local c e i
+   local c e i
 
-    (($#)) || return
+   (($#)) || return
 
-    for i; do
-        c=''
-        e=1
-        if [[ ! -r $i ]]; then
-            echo "$0: file is unreadable: \`$i'" >&2
-            continue
-        fi
-        case $i in
-            *.tar.bz2 ) tar xvjf $1 ;;
-             *.tar.gz ) tar xvzf $1 ;;
-             *.tar.xz ) tar xvJf $1 ;;
-                *.tar ) tar xvf $1 ;;
-               *.tbz2 ) tar xvjf $1 ;;
-                *.tgz ) tar xvzf $1 ;;
-                *.rar ) unrar x $1 ;;
-                 *.gz ) gunzip $1 ;;
-                *.bz2 ) bunzip2 $1 ;;
-                *.zip ) unzip $1 ;;
-                  *.Z ) uncompress $1 ;;
-                 *.7z ) 7z x $1 ;;
-                 *.xz ) unxz $1 ;;
-                *.exe ) cabextract $1 ;;
-                    * ) echo "$0: unrecognized file extension: \`$i'" >&2
-                       continue;;
-        esac
-            command $c "$i"
-            e=$?З
-    done
-    return $e
+   for i; do
+      c=''
+      e=1
+      if [[ ! -r $i ]]; then
+         echo "$0: file is unreadable: \`$i'" >&2
+         continue
+      fi
+      case $i in
+         *.tar.bz2 ) tar xvjf $1 ;;
+         *.tar.gz ) tar xvzf $1 ;;
+         *.tar.xz ) tar xvJf $1 ;;
+         *.tar ) tar xvf $1 ;;
+         *.tbz2 ) tar xvjf $1 ;;
+         *.tgz ) tar xvzf $1 ;;
+         *.rar ) unrar x $1 ;;
+         *.gz ) gunzip $1 ;;
+         *.bz2 ) bunzip2 $1 ;;
+         *.zip ) unzip $1 ;;
+         *.Z ) uncompress $1 ;;
+         *.7z ) 7z x $1 ;;
+         *.xz ) unxz $1 ;;
+         *.exe ) cabextract $1 ;;
+         * ) echo "$0: unrecognized file extension: \`$i'" >&2
+         continue;;
+   esac
+   command $c "$i"
+   e=$?З
+done
+return $e
 }
