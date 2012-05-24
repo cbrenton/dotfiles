@@ -57,15 +57,19 @@ export GFIND_EXCLUDE="3P:Deprecated"
 export TODOTXT_DEFAULT_ACTION=ls
 
 alias vogon="ssh cbrenton@unix1.csc.calpoly.edu"
-alias reddit-cli=" reddit-cli"
+alias reboot="sudo reboot"
+alias shutdown="sudo shutdown -h now"
 alias t="todo.sh -d $HOME/.todo/todo.cfg"
+alias red=" reddit-cli"
 alias zed="vim $HOME/.zshrc"
 alias rez="source $HOME/.zshrc"
 alias ved="vim $HOME/.vimrc"
 alias xed="vim $HOME/.Xresources"
 alias rex="xrdb $HOME/.Xresources"
+alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
 alias pingu="ping -c 4 www.google.com"
 alias sudo="nocorrect sudo"
+alias xinit="nocorrect xinit"
 alias ll='ls -lh'
 alias la='ls -lhA'
 alias l='ls'
@@ -112,4 +116,40 @@ review()
          vim ./notes.txt
       fi
    fi
+}
+## ARCHIVE EXTRACTOR #{{{
+extract() {
+    local c e i
+
+    (($#)) || return
+
+    for i; do
+        c=''
+        e=1
+        if [[ ! -r $i ]]; then
+            echo "$0: file is unreadable: \`$i'" >&2
+            continue
+        fi
+        case $i in
+            *.tar.bz2 ) tar xvjf $1 ;;
+             *.tar.gz ) tar xvzf $1 ;;
+             *.tar.xz ) tar xvJf $1 ;;
+                *.tar ) tar xvf $1 ;;
+               *.tbz2 ) tar xvjf $1 ;;
+                *.tgz ) tar xvzf $1 ;;
+                *.rar ) unrar x $1 ;;
+                 *.gz ) gunzip $1 ;;
+                *.bz2 ) bunzip2 $1 ;;
+                *.zip ) unzip $1 ;;
+                  *.Z ) uncompress $1 ;;
+                 *.7z ) 7z x $1 ;;
+                 *.xz ) unxz $1 ;;
+                *.exe ) cabextract $1 ;;
+                    * ) echo "$0: unrecognized file extension: \`$i'" >&2
+                       continue;;
+        esac
+            command $c "$i"
+            e=$?З
+    done
+    return $e
 }

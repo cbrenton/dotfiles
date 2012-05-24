@@ -54,7 +54,8 @@ URxvt.color15: #d4d4d4
 ! u r x v t
 
 URxvt.geometry:         84x27  
-URxvt.font:             xft:ProggyCleanTTSZ:size=12:antialias=false
+!URxvt.font:             xft:ProggyCleanTTSZ:size=12:antialias=false
+URxvt.font:             xft:ProggyCleanTTSZ for Powerline 2:size=6:antialias=false
 !URxvt.font:             xft:Monaco for Powerline:size=9
 !URxvt.font:             xft:Terminus for Powerline:size=11:antialias=false
 URxvt.urlLauncher:      chromium 
@@ -63,6 +64,12 @@ URxvt.scrollBar_right:  true
 URxvt.scrollColor:      #000000
 URxvt.cursorUnderline:  true
 URxvt.underlineColor:   green
+! Real transparency.
+!URxvt.depth:            32
+!URxvt.background:       rgba:0000/0000/0200/c800
+! Fake transparency.
+URxvt.transparent:      true
+URxvt.shading: 10
 
 !------------------------------------------------------------------------------
 ! urxvt copy/paste

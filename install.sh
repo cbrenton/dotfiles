@@ -23,9 +23,9 @@ then
 fi
 ln -sf $HOME/.dotfiles/gitconfig $HOME/.gitconfig
 
-if [ -e $HOME/.xmodmap ] && [ ! -L $HOME/.xmodmap ]
+if [ -e $HOME/.Xmodmap ] && [ ! -L $HOME/.Xmodmap ]
 then
-   mv $HOME/.xmodmap $HOME/.xmodmap.old
+   mv $HOME/.Xmodmap $HOME/.Xmodmap.old
 fi
 ln -sf $HOME/.dotfiles/xmodmap $HOME/.xmodmap
 
