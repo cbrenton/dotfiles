@@ -1,0 +1,50 @@
+
+#####
+# Set what your prompt changes to while you're in a job. This must
+# be quoted twice, with single quotes on the outside and double quotes
+# on the inside.
+#
+#     %m = hostname
+#     %h = history line number
+#     %T = time
+#     %/ = full path
+#     %~ = full path, substituting homedirs
+#     %c2 = last two elements of path
+#     %B...%b = bold
+#     %U...%u = underline
+#     ${pvtblue}...${pvtreset} = change color to blue
+#         NOTE: Run 'set | grep pvt' for full list of colors
+#     ${my_tree_color} = color set via code in .cshrc
+#     $job_name = job name
+#     $job_tree = job tree
+#     $job_tree_brief = job tree with "shdw_" removed
+#     $job_coremap_name = softmap name
+#     $job_coremap_name_brief = softmap name with prod name and year removed.
+#     $job_coremap_name_brief_suffix = $job_coremap_name_brief plus "d" for
+#         double, and "64" for 64 bit
+
+if (! $?job_tree) set job_tree = 'none'
+if (! $?my_tree_color) set my_tree_color = ''
+if (! $?path_elems) set path_elems = ($job_tree)
+
+#if (($?interactive_shell)) then
+#  set job_coremap_name_brief_clean_folio_ver=`(/rel/map/generic.default-2011.13.54/bin/a_get a_anim_folio_ver | sed -e 's/2011.//')`
+#  set job_coremap_name_brief_clean_folio_rev=`(/rel/map/generic.default-2011.13.54/bin/a_get a_anim_folio_rev | sed -e 's/2011.//')`
+#  set job_coremap_name_brief_clean="${job_coremap_name_brief_clean_folio_ver}:${job_coremap_name_brief_clean_folio_rev}"
+#else
+#  set job_coremap_name_brief_clean="-"
+#endif
+
+switch (`hostname`)
+   case *.pdi.com:
+      set site = 'RWC'
+      breaksw
+   case *.ddu-india.com:
+      set site = 'DDU'
+      breaksw
+   case *:
+      set site = 'GDI'
+      breaksw
+endsw
+
+set job_cur_prompt = '"${pvtwhite}%m${pvtblue}@%B${pvtwhite}${site}%b${pvtred}:${pvtblue}%~${pvtred}|%B${pvtwhite}${job_name}${pvtred}.%b${pvtwhite}${job_tree_brief}${pvtred} »${pvtreset} "'
