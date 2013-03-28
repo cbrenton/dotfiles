@@ -30,7 +30,7 @@ if [ -e $HOME/.Xmodmap ] && [ ! -L $HOME/.Xmodmap ]
 then
    mv $HOME/.Xmodmap $HOME/.Xmodmap.old
 fi
-ln -sf $HOME/.dotfiles/xmodmap $HOME/.xmodmap
+ln -sf $HOME/.dotfiles/Xmodmap $HOME/.Xmodmap
 
 if [ -e $HOME/.Xresources ] && [ ! -L $HOME/.Xresources ]
 then

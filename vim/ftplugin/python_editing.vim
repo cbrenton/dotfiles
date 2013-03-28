@@ -11,7 +11,7 @@ set foldmethod=expr
 set foldexpr=PythonFoldExpr(v:lnum)
 set foldtext=PythonFoldText()
 
-map <buffer> F za
+"map <buffer> F za
 map <Tab> :call ToggleFold()<CR>
 let b:folded = 1
 

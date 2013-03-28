@@ -1,3 +1,7 @@
+if v:version < 700 "older vim
+   let $MYVIMRC="$HOME/.vimrc"
+endif
+
 " General options
 behave xterm
 set viminfo='20,\"500,%
@@ -23,7 +27,7 @@ set tabstop=8           " spaces used to represent tab characters in a file
    set cindent
    set cinoptions=:0,p0,t0
    set cinwords=if,unless,else,while,until,do,for,switch,case
-   set cursorline          " current line highlight
+   "set cursorline          " current line highlight
    set expandtab           " don't output tabs; replace with spaces
    set formatoptions=tcqr
    set hlsearch            " highlight search terms
@@ -45,6 +49,10 @@ set tabstop=8           " spaces used to represent tab characters in a file
    set wildmenu
    set wrap                " wrap lines
 " }
+
+" Fix backspace in insert mode.
+set t_kb=
+"fixdel
 
 syntax on                  " indentation
 
@@ -116,4 +124,4 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
 " Use Pathogen.
-call pathogen#infect()
+"call pathogen#infect()
