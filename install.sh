@@ -20,6 +20,12 @@ then
 fi
 ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
 
+if [ -e $HOME/.tmux.conf ] && [ ! -L $HOME/.tmux.conf ]
+then
+   mv $HOME/.tmux.conf $HOME/.tmux.conf.old
+fi
+ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
+
 if [ -e $HOME/.gitconfig ] && [ ! -L $HOME/.gitconfig ]
 then
    mv $HOME/.gitconfig $HOME/.gitconfig.old

@@ -1,0 +1,25 @@
+alias reboot="sudo reboot"
+alias shutdown="sudo shutdown -h now"
+alias zed="vim $HOME/.zshrc"
+alias rez="source $HOME/.zshrc"
+alias ved="vim $HOME/.vimrc"
+alias xed="vim $HOME/.Xresources"
+alias rex="xrdb $HOME/.Xresources"
+alias ted="vim $HOME/.tmux.conf"
+alias ret="tmux source-file $HOME/.tmux.conf"
+alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
+alias pingu="ping -c 4 www.google.com"
+alias sudo="nocorrect sudo"
+alias xinit="nocorrect xinit"
+alias ll='ls -lh'
+alias la='ls -lhA'
+alias l='ls'
+alias cl='clear'
+alias x='exit'
+alias v='vim'
+alias dev='ssh dev'
+alias denko='echo "(´･ω･\`)"'
+alias cpdenko='echo "(´･ω･\`)" && printf "(´･ω･\`)" | pbcopy'
+alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽"'
+alias cpcry='echo "༼;´༎ຶ ۝ ༎ຶ༽" && printf "༼;´༎ຶ ۝ ༎ຶ༽" | pbcopy'
+alias trapify='$HOME/code/trapify/trapify'

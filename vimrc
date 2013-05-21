@@ -34,6 +34,7 @@ set tabstop=8           " spaces used to represent tab characters in a file
    set number              " turn on line numbers
    set path=~/Code/**      " sets path to the Code directory
    set ruler
+   set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
    set showbreak=+++\ \    " make breaks more obvious
    set showcmd             " show commands in status line when typing
    set showmatch

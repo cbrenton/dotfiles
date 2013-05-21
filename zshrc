@@ -81,26 +81,7 @@ export GFIND_EXCLUDE="3P:Deprecated"
 # Todo-txt will use the ls command if no command is specified.
 export TODOTXT_DEFAULT_ACTION=ls
 
-alias vogon="ssh cbrenton@unix1.csc.calpoly.edu"
-alias reboot="sudo reboot"
-alias shutdown="sudo shutdown -h now"
-alias t="todo.sh -d $HOME/.todo/todo.cfg"
-alias red=" reddit-cli"
-alias zed="vim $HOME/.zshrc"
-alias rez="source $HOME/.zshrc"
-alias ved="vim $HOME/.vimrc"
-alias xed="vim $HOME/.Xresources"
-alias rex="xrdb $HOME/.Xresources"
-alias duf='du -sk * | sort -n | perl -ne '\''($s,$f)=split(m{\t});for (qw(K M G)) {if($s<1024) {printf("%.1f",$s);print "$_\t$f"; last};$s=$s/1024}'\'
-alias pingu="ping -c 4 www.google.com"
-alias sudo="nocorrect sudo"
-alias xinit="nocorrect xinit"
-alias ll='ls -lh'
-alias la='ls -lhA'
-alias l='ls'
-alias cl='clear'
-alias x='exit'
-alias q='exit'
+source ~/.aliases
 
 notes()
 {
