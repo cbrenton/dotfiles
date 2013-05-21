@@ -81,7 +81,7 @@ export GFIND_EXCLUDE="3P:Deprecated"
 # Todo-txt will use the ls command if no command is specified.
 export TODOTXT_DEFAULT_ACTION=ls
 
-source ~/.aliases
+source $HOME/.aliases
 
 notes()
 {

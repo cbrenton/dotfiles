@@ -20,6 +20,12 @@ then
 fi
 ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
 
+if [ -e $HOME/.aliases ] && [ ! -L $HOME/.aliases ]
+then
+   mv $HOME/.aliases $HOME/.aliases.old
+fi
+ln -sf $HOME/.dotfiles/aliases $HOME/.aliases
+
 if [ -e $HOME/.tmux.conf ] && [ ! -L $HOME/.tmux.conf ]
 then
    mv $HOME/.tmux.conf $HOME/.tmux.conf.old
