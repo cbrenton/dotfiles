@@ -13,9 +13,9 @@ set viminfo='20,\"500,%
 set history=500      " keep {number} lines of command line history
 
 " Tabs
-set shiftwidth=3
-set softtabstop=3       " spaces per tab press
-set tabstop=8           " spaces used to represent tab characters in a file
+"set shiftwidth=3
+"set softtabstop=3       " spaces per tab press
+"set tabstop=8           " spaces used to represent tab characters in a file
 
 " General {
    set autoindent          " follow current indentation
@@ -24,7 +24,7 @@ set tabstop=8           " spaces used to represent tab characters in a file
    set cinoptions=:0,p0,t0
    set cinwords=if,unless,else,while,until,do,for,switch,case
    set cursorline          " current line highlight
-   set expandtab           " don't output tabs; replace with spaces
+   "set expandtab           " don't output tabs; replace with spaces
    set formatoptions=tcqr
    set hlsearch            " highlight search terms
    set ignorecase          " ignore capitalization
@@ -72,8 +72,11 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Make <leader>h turn off highlights from the last search.
 nmap <leader>h :nohlsearch<CR>
 
-" Make <leader>v open .vimrc in another tab for editing.
-nmap <leader>v :tabedit $MYVIMRC<CR>
+" Make <leader>v open .vimrc in a vertical split for editing.
+nmap <leader>v :vs $MYVIMRC<CR>
+
+nmap <leader>f :set foldmethod=indent<cr>zM<cr>
+nmap <leader>F :set foldmethod=manual<cr>zR<cr>
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -93,14 +96,15 @@ filetype plugin indent on
 "  Note: this detabbing should work for tabs at the beginning of the line, but
 "      will probably be somewhat wrong for tabs later in the line, but
 "      wherever they used to be, they'll now be gone.
-:map <Tab> mz:set fileformat=unix<cr>:set endofline<cr>A<C-V><Tab><esc>:%s/<C-V><Tab>/   /g<cr>:%s/\s*$//<cr>:nohlsearch<cr>ggVG=`z
+":map <Tab> mz:set fileformat=unix<cr>:set endofline<cr>A<C-V><Tab><esc>:%s/<C-V><Tab>/   /g<cr>:%s/\s*$//<cr>:nohlsearch<cr>ggVG=`z
+:map <Tab> mz:set fileformat=unix<cr>:set endofline<cr>A<C-V><Tab><esc>:%s/\s*$//<cr>:nohlsearch<cr>ggVG=`z
 
 " F6 works like tab, but works even in insert mode.
 :map <F6> <Tab>
 :imap <F6> <esc>mz<Tab>`za
 
 " ABBREVIATIONS
-:ab cmain <cr>int main(int argc, char *argv[]) {<cr>return 0;<cr><bs>}<cr><esc>kkO<tab>   <esc>
+:ab cmain <cr>iint main(int argc, char *argv[]) {<cr>return 0;<cr><bs>}<cr><esc>kkO<tab>   <esc>
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Toggle line numbers and fold column for easy copying:
@@ -118,3 +122,6 @@ nnoremap <C-l> <C-w>l
 
 " Use Pathogen.
 call pathogen#infect()
+
+" Disable minibufexplorer. Ugh.
+let g:loaded_minibufexplorer=1

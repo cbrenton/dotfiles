@@ -25,7 +25,7 @@ ZSH=$HOME/$OMZDIR
 
 autoload omz
 
-plugins=(archlinux git tmux)
+plugins=(git tmux)
 
 zstyle ':omz:plugins:*' autostart on
 # Comment out the following line if you wish for every z shell.
@@ -82,6 +82,11 @@ export GFIND_EXCLUDE="3P:Deprecated"
 export TODOTXT_DEFAULT_ACTION=ls
 
 source $HOME/.aliases
+if [[ -e $HOME/.workaliases ]]; then
+	source $HOME/.workaliases
+fi
+
+source $HOME/nvm/nvm.sh
 
 notes()
 {
@@ -158,4 +163,36 @@ extract() {
    e=$?З
 done
 return $e
+}
+
+
+if [ "x$SSH_AUTH_SOCK" != "x/tmp/$USER-ssh-auth-sock" ]; then
+    ln -snf $SSH_AUTH_SOCK /tmp/$USER-ssh-auth-sock
+fi
+ 
+SSH_AUTH_SOCK=/tmp/$USER-ssh-auth-sock
+export SSH_AUTH_SOCK
+ 
+ 
+##
+# Find an active auth socket
+# When the above fails, run this first on your screen host and then again on the remote
+# see http://tychoish.com/rhizome/9-awesome-ssh-tricks/
+##
+ssh-reagent ()
+{
+    for agent in /tmp/ssh-*/agent.*;
+    do
+        export SSH_AUTH_SOCK=$agent;
+        if ssh-add -l 2>&1 > /dev/null; then
+            echo Found working SSH Agent:;
+            ssh-add -l;
+            ln -snf $SSH_AUTH_SOCK /tmp/$USER-ssh-auth-sock;
+            export SSH_AUTH_SOCK=/tmp/$USER-ssh-auth-sock;
+            return;
+        fi;
+    done;
+ 
+ 
+    echo 'Cannot find ssh agent - maybe you should reconnect and forward it?' 1>&2
 }

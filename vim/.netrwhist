@@ -1,11 +1,5 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =9
-let g:netrw_dirhist_1='/media/FORTIS/School/cpe430/hw2/hw2given/tests/1_recognizer'
-let g:netrw_dirhist_2='/home/cbrenton/Documents/cpe471/prog3'
-let g:netrw_dirhist_3='/home/cbrenton/Documents/personal/python/shootv2'
-let g:netrw_dirhist_4='/home/cbrenton/Documents/personal/terlR/lib/pngwriter-0.5.4'
-let g:netrw_dirhist_5='/home/cbrenton/NVIDIA_GPU_Computing_SDK/C/src/MonteCarlo'
-let g:netrw_dirhist_6='/home/cbrenton/NVIDIA_GPU_Computing_SDK/C/src/volumeRender'
-let g:netrw_dirhist_7='/etc/lightdm'
-let g:netrw_dirhist_8='/etc/polkit-1/localauthority/50-local.d'
-let g:netrw_dirhist_9='/etc/X11/xorg.conf.d'
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/cbrenton/code/deployment-manager/src/main/scala/net/box/deploy'
+let g:netrw_dirhist_2='/home/cbrenton/code/devtools/lib/Project'
+let g:netrw_dirhist_3='/home/cbrenton/code/notes/tests'
