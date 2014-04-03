@@ -52,7 +52,8 @@ ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
 FOUND=false
-for OMZ in ".oh-my-zsh", ".omz"
+omzDirs=( ".oh-my-zsh" ".omz" )
+for OMZ in "${omzDirs[@]}"
 do
    if [ -d $HOME/$OMZ ]
    then

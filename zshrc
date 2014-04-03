@@ -86,8 +86,6 @@ if [[ -e $HOME/.workaliases ]]; then
 	source $HOME/.workaliases
 fi
 
-source $HOME/nvm/nvm.sh
-
 notes()
 {
    if [[ $# -eq 1 ]]; then
