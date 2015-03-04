@@ -13,9 +13,9 @@ set viminfo='20,\"500,%
 set history=500      " keep {number} lines of command line history
 
 " Tabs
-"set shiftwidth=3
-"set softtabstop=3       " spaces per tab press
-"set tabstop=8           " spaces used to represent tab characters in a file
+set shiftwidth=3
+set softtabstop=3       " spaces per tab press
+set tabstop=3           " spaces used to represent tab characters in a file
 
 " General {
    set autoindent          " follow current indentation
@@ -24,7 +24,7 @@ set history=500      " keep {number} lines of command line history
    set cinoptions=:0,p0,t0
    set cinwords=if,unless,else,while,until,do,for,switch,case
    set cursorline          " current line highlight
-   "set expandtab           " don't output tabs; replace with spaces
+   set expandtab           " don't output tabs; replace with spaces
    set formatoptions=tcqr
    set hlsearch            " highlight search terms
    set ignorecase          " ignore capitalization
@@ -113,6 +113,10 @@ nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
+
+ca tn tabnew
+ca th tabp
+ca tl tabn
 
 " Easy split navigation.
 nnoremap <C-h> <C-w>h

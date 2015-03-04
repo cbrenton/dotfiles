@@ -20,8 +20,18 @@ alias l='ls'
 alias cl='clear'
 alias x='exit'
 alias v='vim'
-alias dev='ssh dev'
-alias cdc='cd /box/www/cbrenton'
-alias pushgerrit='pushgerrit box-etherpad-lite2/dev'
 alias denko='echo "(´･ω･\`)"'
 alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽"'
+
+touchpy() {[ -f $1 ] || { touch $1 && chmod +x $1 && echo "#!/usr/bin/env python" > $1 }}
+alias tp='touchpy'
+mkvirtualenv3() {mkvirtualenv $* -p `which python3`}
+alias mkve='mkvirtualenv'
+alias rmve='rmvirtualenv'
+alias mkve3='mkvirtualenv3'
+
+alias gcn='git commit -a'
+alias gca='git commit --amend -a'
+alias gs='git status'
+alias gd='git diff'
+alias gdd='git diff origin/master'

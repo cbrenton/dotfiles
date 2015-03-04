@@ -1,5 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/cbrenton/code/deployment-manager/src/main/scala/net/box/deploy'
-let g:netrw_dirhist_2='/home/cbrenton/code/devtools/lib/Project'
-let g:netrw_dirhist_3='/home/cbrenton/code/notes/tests'

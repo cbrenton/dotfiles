@@ -35,7 +35,7 @@ zstyle :omz:plugins:tmux:cmd irc irssi
 # dir, t code will launch a shell inside of tmux in $HOME/code.
 zstyle :omz:plugins:tmux:dir code $HOME/code
 
-export PATH=$PATH
+export PATH=/usr/local/share/python:$PATH
 export EDITOR=vim
 export GIT_EDITOR=vim
 
@@ -85,6 +85,10 @@ source $HOME/.aliases
 if [[ -e $HOME/.workaliases ]]; then
 	source $HOME/.workaliases
 fi
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
 
 notes()
 {
