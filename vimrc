@@ -63,7 +63,7 @@ set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 
 " Set leader to something reasonable.
-let mapleader = ","
+let mapleader = "\<Space>"
 
 " Make tabs and trailing spaces visible when requested.
 set listchars=tab:>-,trail:·,eol:$
@@ -72,15 +72,18 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Make <leader>h turn off highlights from the last search.
 nmap <leader>h :nohlsearch<CR>
 
-" Make <leader>v open .vimrc in a vertical split for editing.
-nmap <leader>v :vs $MYVIMRC<CR>
+" Make <leader>v open .vimrc in a new tab for editing.
+nmap <leader>v :tabnew $MYVIMRC<CR>
 
 nmap <leader>f :set foldmethod=indent<cr>zM<cr>
 nmap <leader>F :set foldmethod=manual<cr>zR<cr>
 
 " Source the vimrc file after saving it
 if has("autocmd")
-   autocmd bufwritepost .vimrc source $MYVIMRC
+   augroup reload_vimrc " {
+      autocmd!
+      autocmd bufwritepost $MYVIMRC source $MYVIMRC
+   augroup END " }
 endif
 
 filetype plugin indent on
@@ -110,6 +113,26 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " Toggle line numbers and fold column for easy copying:
 nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
 
+" Insert 'import pdb; pdb.set_trace()' before the current line with leader-p
+nnoremap <leader>p Oimport pdb; pdb.set_trace()<Esc>
+
+" Leader-w to save a file
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>b :bd<CR>
+nnoremap <Leader>q :q<CR>
+nnoremap <Leader>Q :qa<CR>
+
+" Jump to end of pasted lines
+vnoremap <silent> y y`]
+vnoremap <silent> p p`]
+nnoremap <silent> p p`]
+
+" Improved search/replace: yank selection with ys, change with cs
+vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+    \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
+omap s :normal vs<CR>
+
+" Python-specific spacing
 au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
