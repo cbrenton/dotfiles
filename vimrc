@@ -111,13 +111,14 @@ filetype plugin indent on
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 " Toggle line numbers and fold column for easy copying:
-nnoremap <F2> :set nonumber!<CR>:set foldcolumn=0<CR>
+nnoremap <Leader>n :set nonumber!<CR>:set foldcolumn=0<CR>
 
 " Insert 'import pdb; pdb.set_trace()' before the current line with leader-p
 nnoremap <leader>p Oimport pdb; pdb.set_trace()<Esc>
 
 " Leader-w to save a file
 nnoremap <Leader>w :w<CR>
+nnoremap <Leader>W :wq<CR>
 nnoremap <Leader>b :bd<CR>
 nnoremap <Leader>q :q<CR>
 nnoremap <Leader>Q :qa<CR>

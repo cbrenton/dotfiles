@@ -38,6 +38,7 @@ zstyle :omz:plugins:tmux:dir code $HOME/code
 export PATH=/usr/local/share/python:$PATH
 export EDITOR=vim
 export GIT_EDITOR=vim
+export werk=~/code/werk
 
 # Set name of the theme to load.
 # Look in $HOME/.omz/themes/ or $HOME/.oh-my-zsh/themes.
