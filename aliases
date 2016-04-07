@@ -35,3 +35,6 @@ alias gca='git commit --amend -a'
 alias gs='git status'
 alias gd='git diff'
 alias gdd='git diff origin/master'
+
+alias scp='scp -pr'
+alias mkdir='mkdir -p'

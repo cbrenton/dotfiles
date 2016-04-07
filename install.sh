@@ -14,6 +14,11 @@ then
    ln -sf $HOME/.dotfiles/vim $HOME/.vim
 fi
 
+if [ ! -L $HOME/.tmux ]
+then
+   ln -sf $HOME/.dotfiles/tmux $HOME/.tmux
+fi
+
 if [ -e $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]
 then
    mv $HOME/.zshrc $HOME/.zshrc.old

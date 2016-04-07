@@ -116,6 +116,9 @@ nnoremap <Leader>n :set nonumber!<CR>:set foldcolumn=0<CR>
 " Insert 'import pdb; pdb.set_trace()' before the current line with leader-p
 nnoremap <leader>p Oimport pdb; pdb.set_trace()<Esc>
 
+" Toggle paste mode with leader-P
+nnoremap <leader>P :set nopaste!<CR>
+
 " Leader-w to save a file
 nnoremap <Leader>w :w<CR>
 nnoremap <Leader>W :wq<CR>
