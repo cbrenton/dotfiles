@@ -20,8 +20,11 @@ alias l='ls'
 alias cl='clear'
 alias x='exit'
 alias v='vim'
-alias denko='echo "(´･ω･\`)"'
-alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽"'
+alias t='tmux'
+alias sctl='sudo systemctl'
+alias denko='echo "(´･ω･\`)" | pbcopy'
+alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽" | pbcopy'
+alias shrug='echo "¯\_(ツ)_/¯" | pbcopy'
 
 touchpy() {[ -f $1 ] || { touch $1 && chmod +x $1 && echo "#!/usr/bin/env python" > $1 }}
 alias tp='touchpy'
@@ -29,12 +32,34 @@ mkvirtualenv3() {mkvirtualenv $* -p `which python3`}
 alias mkve='mkvirtualenv'
 alias rmve='rmvirtualenv'
 alias mkve3='mkvirtualenv3'
+alias wo='workon'
 
 alias gcn='git commit -a'
 alias gca='git commit --amend -a'
 alias gs='git status'
 alias gd='git diff'
 alias gdd='git diff origin/master'
+alias gdl='git diff HEAD^'
+alias lg='git lg'
 
 alias scp='scp -pr'
 alias mkdir='mkdir -p'
+
+create_ssh_key() {[ $# -eq 1 ] && ssh-keygen -t rsa -b 4096 -C "$1" || { echo "Usage: create_ssh_key <email>" && return 1 }}
+
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
+# Ring the terminal bell, and put a badge on Terminal.app’s Dock icon
+# (useful when executing time-consuming commands)
+alias badge="tput bel"
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Lock the screen (when going AFK)
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+rg() { grep "$1" ./* -r}
