@@ -13,9 +13,9 @@ set viminfo='20,\"500,%
 set history=500      " keep {number} lines of command line history
 
 " Tabs
-set shiftwidth=3
-set softtabstop=3       " spaces per tab press
-set tabstop=3           " spaces used to represent tab characters in a file
+set shiftwidth=2
+set softtabstop=2       " spaces per tab press
+set tabstop=2           " spaces used to represent tab characters in a file
 
 " General {
    set autoindent          " follow current indentation
@@ -150,6 +150,16 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
+
+" CtrlP settings
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 " Use Pathogen.
 call pathogen#infect()

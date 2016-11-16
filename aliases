@@ -21,6 +21,8 @@ alias cl='clear'
 alias x='exit'
 alias v='vim'
 alias t='tmux'
+alias ta='tmux attach'
+alias tn='tmux new'
 alias sctl='sudo systemctl'
 alias denko='echo "(´･ω･\`)" | pbcopy'
 alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽" | pbcopy'
@@ -62,4 +64,4 @@ alias map="xargs -n1"
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
-rg() { grep "$1" ./* -r}
+rg() { grep $* ./* -r}
