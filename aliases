@@ -27,6 +27,7 @@ alias sctl='sudo systemctl'
 alias denko='echo "(´･ω･\`)" | pbcopy'
 alias cry='echo "༼;´༎ຶ ۝ ༎ຶ༽" | pbcopy'
 alias shrug='echo "¯\_(ツ)_/¯" | pbcopy'
+alias hmm='echo "(Ծ‸ Ծ)" | pbcopy'
 
 touchpy() {[ -f $1 ] || { touch $1 && chmod +x $1 && echo "#!/usr/bin/env python" > $1 }}
 alias tp='touchpy'
@@ -42,6 +43,8 @@ alias gs='git status'
 alias gd='git diff'
 alias gdd='git diff origin/master'
 alias gdl='git diff HEAD^'
+# Undo git commit amend
+alias gua='git reset --soft @{1} && git commit -C @{1}'
 alias lg='git lg'
 
 alias scp='scp -pr'

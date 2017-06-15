@@ -56,6 +56,8 @@ fi
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
+ln -sf $HOME/.dotfiles/monokai.itermcolors $HOME/monokai.itermcolors
+
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )
 for OMZ in "${omzDirs[@]}"
