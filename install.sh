@@ -78,4 +78,7 @@ then
    echo "Could not install cbr.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
 fi
 
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ret
+
 echo "If this is an Arch box running OpenBox and Xfce4, install xinitrc yourself."
