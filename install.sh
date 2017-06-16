@@ -65,17 +65,31 @@ do
    if [ -d $HOME/$OMZ ]
    then
       FOUND=true
-      if [ -e $HOME/$OMZ/themes/mine.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/mine.zsh-theme ]
+      if [ -e $HOME/$OMZ/themes/cbr.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/cbr.zsh-theme ]
       then
-         mv $HOME/$OMZ/themes/mine.zsh-theme.old
+         mv $HOME/$OMZ/themes/cbr.zsh-theme.old
       fi
-      ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/$OMZ/themes/mine.zsh-theme
+      ln -sf $HOME/.dotfiles/cbr.zsh-theme $HOME/$OMZ/themes/cbr.zsh-theme
       break
    fi
 done
 if [ ! $FOUND ]
 then
-   echo "Could not install mine.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
+   echo "Could not install cbr.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
 fi
+
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+ret
+
+GIT_EMAIL="chrisbrenton@gmail.com"
+git config --global user.name "Chris Brenton"
+git config --global user.email "$GIT_EMAIL"
+
+# Generate ssh key.
+ssh-keygen -t rsa -b 4096 -C "$GIT_EMAIL"
+
+# Start the ssh agent
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
 
 echo "If this is an Arch box running OpenBox and Xfce4, install xinitrc yourself."
