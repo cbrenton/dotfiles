@@ -11,6 +11,14 @@ brew install reattach-to-user-namespace
 brew install git
 brew install vim
 brew install tmux
+brew install python
+
+# Upgrade pip
+pip install --upgrade distribute
+pip install --upgrade pip
+pip install virtualenvwrapper
+pip install powerline-status
+pip install ipython
 
 # Install generic stuff
 ./install.sh
