@@ -44,7 +44,7 @@ export werk=~/code/werk
 # Look in $HOME/.omz/themes/ or $HOME/.oh-my-zsh/themes.
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="mine"
+ZSH_THEME="cbr"
 
 # Initialize oh-my-zsh.
 source $ZSH/oh-my-zsh.sh

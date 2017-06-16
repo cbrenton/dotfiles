@@ -65,17 +65,17 @@ do
    if [ -d $HOME/$OMZ ]
    then
       FOUND=true
-      if [ -e $HOME/$OMZ/themes/mine.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/mine.zsh-theme ]
+      if [ -e $HOME/$OMZ/themes/cbr.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/cbr.zsh-theme ]
       then
-         mv $HOME/$OMZ/themes/mine.zsh-theme.old
+         mv $HOME/$OMZ/themes/cbr.zsh-theme.old
       fi
-      ln -sf $HOME/.dotfiles/mine.zsh-theme $HOME/$OMZ/themes/mine.zsh-theme
+      ln -sf $HOME/.dotfiles/cbr.zsh-theme $HOME/$OMZ/themes/cbr.zsh-theme
       break
    fi
 done
 if [ ! $FOUND ]
 then
-   echo "Could not install mine.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
+   echo "Could not install cbr.zsh-theme. Try installing oh-my-zsh if it isn't already installed."
 fi
 
 echo "If this is an Arch box running OpenBox and Xfce4, install xinitrc yourself."
