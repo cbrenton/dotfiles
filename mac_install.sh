@@ -16,3 +16,6 @@ brew install tmux
 ./install.sh
 
 git config --global credential.helper osxkeychain
+
+# Install mononoki font
+cp ./mononoki-patched.ttf /Library/Fonts
