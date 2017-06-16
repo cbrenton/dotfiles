@@ -1,6 +1,6 @@
 [user]
 	name = Chris Brenton
-	email = cbrenton@box.com
+	email = chrisbrenton@gmail.com
 [alias]
 	co = checkout
 	ci = commit
@@ -12,3 +12,5 @@
 	rb = rebase
 [push]
 	default = current
+[credential]
+	helper = osxkeychain

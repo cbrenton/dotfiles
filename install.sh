@@ -81,4 +81,15 @@ fi
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ret
 
+GIT_EMAIL="chrisbrenton@gmail.com"
+git config --global user.name "Chris Brenton"
+git config --global user.email "$GIT_EMAIL"
+
+# Generate ssh key.
+ssh-keygen -t rsa -b 4096 -C "$GIT_EMAIL"
+
+# Start the ssh agent
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
+
 echo "If this is an Arch box running OpenBox and Xfce4, install xinitrc yourself."
