@@ -1,4 +1,4 @@
-command: 'echo "hello world"'
+command: 'echo "try to be better"'
 
 # the refresh frequency in milliseconds
 refreshFrequency: 1000

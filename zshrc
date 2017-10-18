@@ -1,3 +1,7 @@
+################
+# OS detection #
+################
+
 case $OSTYPE in
    darwin*)
       # Mac.
@@ -18,6 +22,10 @@ case $OSTYPE in
       ;;
 esac
 
+#######
+# OMZ #
+#######
+
 OMZDIR=".oh-my-zsh"
 
 # Path to your oh-my-zsh configuration.
@@ -35,15 +43,7 @@ zstyle :omz:plugins:tmux:cmd irc irssi
 # dir, t code will launch a shell inside of tmux in $HOME/code.
 zstyle :omz:plugins:tmux:dir code $HOME/code
 
-export PATH=/usr/local/share/python:$PATH
-export EDITOR=vim
-export GIT_EDITOR=vim
-export werk=~/code/werk
-
-# Set name of the theme to load.
 # Look in $HOME/.omz/themes/ or $HOME/.oh-my-zsh/themes.
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
 ZSH_THEME="cbr"
 
 # Initialize oh-my-zsh.
@@ -69,27 +69,49 @@ setopt hist_no_functions
 setopt no_hist_beep
 setopt hist_save_no_dups
 
-# Customize to your needs...
-# OS X only.
+################
+# GENERAL/PATH #
+################
+
 if [ $OS = "osx" ]
 then
    export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 fi
 
-# Exclude directories from gfind queries.
-export GFIND_EXCLUDE="3P:Deprecated"
+export PATH=$PATH:/usr/local/share/python
+export EDITOR=vim
+export GIT_EDITOR=vim
 
-# Todo-txt will use the ls command if no command is specified.
-export TODOTXT_DEFAULT_ACTION=ls
+##########
+# GOLANG #
+##########
+
+export GOPATH=$HOME/go
+export GOROOT=/usr/local/opt/go/libexec
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOBIN
+export PATH=$PATH:$GOROOT/bin
+
+###########
+# ALIASES #
+###########
 
 source $HOME/.aliases
 if [[ -e $HOME/.workaliases ]]; then
 	source $HOME/.workaliases
 fi
 
+########################
+# virtualenvwrapper.sh #
+########################
+
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/local/bin/virtualenvwrapper.sh
+
+####################
+# CUSTOM FUNCTIONS #
+####################
 
 notes()
 {
@@ -168,6 +190,9 @@ done
 return $e
 }
 
+#######################
+# SSH REAUTH FOR TMUX #
+#######################
 
 if [ "x$SSH_AUTH_SOCK" != "x/tmp/$USER-ssh-auth-sock" ]; then
     ln -snf $SSH_AUTH_SOCK /tmp/$USER-ssh-auth-sock
@@ -176,12 +201,9 @@ fi
 SSH_AUTH_SOCK=/tmp/$USER-ssh-auth-sock
 export SSH_AUTH_SOCK
  
- 
-##
 # Find an active auth socket
 # When the above fails, run this first on your screen host and then again on the remote
 # see http://tychoish.com/rhizome/9-awesome-ssh-tricks/
-##
 ssh-reagent ()
 {
     for agent in /tmp/ssh-*/agent.*;
@@ -199,19 +221,3 @@ ssh-reagent ()
  
     echo 'Cannot find ssh agent - maybe you should reconnect and forward it?' 1>&2
 }
-
-export MARKPATH=$HOME/.marks
-function jump {
-  cd -P $MARKPATH/$1 2>/dev/null || echo "No such mark: $1"
-}
-function mark {
-  mkdir -p $MARKPATH; ln -s $(pwd) $MARKPATH/$1
-}
-function unmark {
-  rm -i $MARKPATH/$1
-}
-function marks {
-  \ls -l $MARKPATH | tail -n +2 | sed 's/  / /g' | cut -d' ' -f9- | awk -F ' -> ' '{printf "%-10s -> %s\n", $1, $2}'
-}
-alias j="jump"
-alias m="mark"

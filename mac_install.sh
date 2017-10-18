@@ -12,6 +12,7 @@ brew install git
 brew install vim
 brew install tmux
 brew install python
+brew install node
 
 # Upgrade pip
 pip install --upgrade distribute
