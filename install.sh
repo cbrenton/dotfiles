@@ -14,11 +14,6 @@ then
    ln -sf $HOME/.dotfiles/vim $HOME/.vim
 fi
 
-if [ ! -L $HOME/.tmux ]
-then
-   ln -sf $HOME/.dotfiles/tmux $HOME/.tmux
-fi
-
 if [ -e $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]
 then
    mv $HOME/.zshrc $HOME/.zshrc.old
@@ -56,8 +51,6 @@ fi
 ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
 xrdb $HOME/.Xresources
 
-ln -sf $HOME/.dotfiles/monokai.itermcolors $HOME/monokai.itermcolors
-
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )
 for OMZ in "${omzDirs[@]}"
@@ -69,7 +62,7 @@ do
       then
          mv $HOME/$OMZ/themes/cbr.zsh-theme.old
       fi
-      ln -sf $HOME/.dotfiles/cbr.zsh-theme $HOME/$OMZ/themes/cbr.zsh-theme
+      ln -sf $HOME/.dotfiles/resources/cbr.zsh-theme $HOME/$OMZ/themes/cbr.zsh-theme
       break
    fi
 done

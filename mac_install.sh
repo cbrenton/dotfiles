@@ -13,6 +13,7 @@ brew install vim
 brew install tmux
 brew install python
 brew install node
+brew install wget
 
 # Upgrade pip
 pip install --upgrade distribute
@@ -27,7 +28,7 @@ pip install ipython
 git config --global credential.helper osxkeychain
 
 # Install mononoki font
-cp ./mononoki-patched.ttf /Library/Fonts
+cp ./resources/mononoki-patched.ttf /Library/Fonts
 
 # Install tldr.sh
 npm install -g tldr
