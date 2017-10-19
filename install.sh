@@ -1,55 +1,32 @@
 #!/bin/bash
-if [ -e $HOME/.vimrc ] && [ ! -L $HOME/.vimrc ]
-then
-   mv $HOME/.vimrc $HOME/.vimrc.old
-fi
-ln -sf $HOME/.dotfiles/vimrc $HOME/.vimrc
 
-if [ -d $HOME/.vim ] && [ ! -L $HOME/.vim ]
-then
-   mv $HOME/.vim $HOME/.vim.old
-fi
-if [ ! -L $HOME/.vim ]
-then
-   ln -sf $HOME/.dotfiles/vim $HOME/.vim
-fi
+replace () {
+  FILE=".$1"
+  if [ -e $HOME/$FILE ] && [ ! -L $HOME/$FILE ]
+  then
+    mv $HOME/$FILE $HOME/$FILE.old
+  fi
+  ln -sf $HOME/.dotfiles/$FILE $HOME/$FILE
+}
 
-if [ -e $HOME/.zshrc ] && [ ! -L $HOME/.zshrc ]
-then
-   mv $HOME/.zshrc $HOME/.zshrc.old
-fi
-ln -sf $HOME/.dotfiles/zshrc $HOME/.zshrc
+replace_dir () {
+  DIR=".$1"
+  if [ -d $HOME/$DIR ] && [ ! -L $HOME/$DIR ]
+  then
+    mv $HOME/$DIR $HOME/$DIR.old
+  fi
+  ln -sf $HOME/.dotfiles/$DIR $HOME/$DIR
+}
 
-if [ -e $HOME/.aliases ] && [ ! -L $HOME/.aliases ]
-then
-   mv $HOME/.aliases $HOME/.aliases.old
-fi
-ln -sf $HOME/.dotfiles/aliases $HOME/.aliases
+for file in "vimrc" \
+  "zshrc" \
+  "aliases" \
+  "tmux.conf" \
+  "gitconfig"; do
+  replace "${file}"
+done
 
-if [ -e $HOME/.tmux.conf ] && [ ! -L $HOME/.tmux.conf ]
-then
-   mv $HOME/.tmux.conf $HOME/.tmux.conf.old
-fi
-ln -sf $HOME/.dotfiles/tmux.conf $HOME/.tmux.conf
-
-if [ -e $HOME/.gitconfig ] && [ ! -L $HOME/.gitconfig ]
-then
-   mv $HOME/.gitconfig $HOME/.gitconfig.old
-fi
-ln -sf $HOME/.dotfiles/gitconfig $HOME/.gitconfig
-
-if [ -e $HOME/.Xmodmap ] && [ ! -L $HOME/.Xmodmap ]
-then
-   mv $HOME/.Xmodmap $HOME/.Xmodmap.old
-fi
-ln -sf $HOME/.dotfiles/xmodmap $HOME/.xmodmap
-
-if [ -e $HOME/.Xresources ] && [ ! -L $HOME/.Xresources ]
-then
-   mv $HOME/.Xresources $HOME/.Xresources.old
-fi
-ln -sf $HOME/.dotfiles/Xresources $HOME/.Xresources
-xrdb $HOME/.Xresources
+replace_dir "vim"
 
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )
@@ -58,10 +35,6 @@ do
    if [ -d $HOME/$OMZ ]
    then
       FOUND=true
-      if [ -e $HOME/$OMZ/themes/cbr.zsh-theme ] && [ ! -L $HOME/$OMZ/themes/cbr.zsh-theme ]
-      then
-         mv $HOME/$OMZ/themes/cbr.zsh-theme.old
-      fi
       ln -sf $HOME/.dotfiles/resources/cbr.zsh-theme $HOME/$OMZ/themes/cbr.zsh-theme
       break
    fi
