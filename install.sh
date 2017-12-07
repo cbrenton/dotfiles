@@ -6,7 +6,7 @@ replace () {
   then
     mv $HOME/$FILE $HOME/$FILE.old
   fi
-  ln -sf $HOME/.dotfiles/$FILE $HOME/$FILE
+  ln -sf $HOME/.dotfiles/$1 $HOME/$FILE
 }
 
 replace_dir () {
@@ -15,7 +15,7 @@ replace_dir () {
   then
     mv $HOME/$DIR $HOME/$DIR.old
   fi
-  ln -sf $HOME/.dotfiles/$DIR $HOME/$DIR
+  ln -sf $HOME/.dotfiles/$1 $HOME/$DIR
 }
 
 for file in "vimrc" \

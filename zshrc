@@ -75,7 +75,7 @@ setopt hist_save_no_dups
 
 if [ $OS = "osx" ]
 then
-   export PATH=/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
+   export PATH=$PATH:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin
 fi
 
 export PATH=$PATH:/usr/local/share/python
