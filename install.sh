@@ -15,7 +15,7 @@ replace_dir () {
   then
     mv $HOME/$DIR $HOME/$DIR.old
   fi
-  ln -sf $HOME/.dotfiles/$1 $HOME/$DIR
+  ln -snf $HOME/.dotfiles/$1 $HOME/$DIR
 }
 
 for file in "vimrc" \
@@ -45,7 +45,6 @@ then
 fi
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-ret
 
 GIT_EMAIL="chrisbrenton@gmail.com"
 git config --global user.name "Chris Brenton"

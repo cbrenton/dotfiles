@@ -1,35 +1,25 @@
-[ `whoami` = root ] || { sudo "$0" "$@"; exit $?; }
+#!/bin/sh -ex
 
-xcode-select --install
+# Run steps that require sudo.
 
-# Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+./mac_sudo_install.sh
 
-# Install oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+# Steps that require non-sudo. Used mostly for brew/pip packages.
+
+brew_install() {
+  brew install "$1" || true
+}
 
 # Install tools
-brew install reattach-to-user-namespace
-brew install git
-brew install vim
-brew install tmux
-brew install python
-brew install node
-brew install wget
-
-# Upgrade pip
-pip install --upgrade distribute
-pip install --upgrade pip
-pip install virtualenvwrapper
-pip install ipython
+for package in "reattach-to-user-namespace" \
+  "git" \
+  "vim" \
+  "tmux" \
+  "python" \
+  "node" \
+  "wget"; do
+  brew_install "${package}"
+done
 
 # Install generic stuff
 ./install.sh
-
-git config --global credential.helper osxkeychain
-
-# Install mononoki font
-cp ./resources/mononoki-patched.ttf /Library/Fonts
-
-# Install tldr.sh
-npm install -g tldr
