@@ -29,12 +29,11 @@ set tabstop=2           " spaces used to represent tab characters in a file
    set hlsearch            " highlight search terms
    set ignorecase          " ignore capitalization
    set incsearch           " highlight search terms as they are typed
-   set laststatus=2        " make Powerline statusbar appear in all windows
+   set laststatus=2        " make airline statusbar appear in all windows
    set nocompatible
    set number              " turn on line numbers
    set path=~/Code/**      " sets path to the Code directory
    set ruler
-   set rtp+=$HOME/.vim/bundle/powerline/powerline/bindings/vim
    set showbreak=+++\ \    " make breaks more obvious
    set showcmd             " show commands in status line when typing
    set showmatch
@@ -51,8 +50,8 @@ syntax on                  " indentation
 
 colorscheme molokai
 
-" Vim-Powerline configuration
-let g:Powerline_symbols = 'fancy'      " use fancy symbols
+" Vim-airline configuration
+let g:airline_powerline_fonts = 1
 
 " Allows non-root user to save write-protected files.
 cmap w!! %!sudo tee > /dev/null %
@@ -156,13 +155,8 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-
 " Use Pathogen.
-call pathogen#infect()
+execute pathogen#infect()
 
 " Disable minibufexplorer. Ugh.
 let g:loaded_minibufexplorer=1

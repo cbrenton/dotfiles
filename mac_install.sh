@@ -1,3 +1,5 @@
+[ `whoami` = root ] || { sudo "$0" "$@"; exit $?; }
+
 xcode-select --install
 
 # Install homebrew
@@ -19,7 +21,6 @@ brew install wget
 pip install --upgrade distribute
 pip install --upgrade pip
 pip install virtualenvwrapper
-pip install powerline-status
 pip install ipython
 
 # Install generic stuff
