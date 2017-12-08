@@ -107,7 +107,8 @@ fi
 
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+source /opt/homebrew/bin/virtualenvwrapper.sh
 
 ####################
 # CUSTOM FUNCTIONS #

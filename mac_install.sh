@@ -23,3 +23,6 @@ done
 
 # Install generic stuff
 ./install.sh
+
+# OSX-specific stuff
+./osx
