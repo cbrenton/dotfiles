@@ -15,23 +15,12 @@ replace () {
   then
     mv $HOME/$FILE_DEST $HOME/.$FILE.old
   fi
-  ln -sf $1 $HOME/$FILE_DEST
-}
-
-replace_dir () {
-  DIR=".$1"
-  if [ -d $HOME/$DIR ] && [ ! -L $HOME/$DIR ]
-  then
-    mv $HOME/$DIR $HOME/$DIR.old
-  fi
-  ln -snf $HOME/.dotfiles/$1 $HOME/$DIR
+  ln -snf $1 $HOME/$FILE_DEST
 }
 
 for file in $PWD/configs/*; do
   replace $file
 done
-
-replace_dir "vim"
 
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )

@@ -1,5 +1,9 @@
 #!/bin/sh -ex
 
+# Force creation of info.sh
+cp -n ./resources/info.template ./info.sh || true
+vi ./info.sh || true
+
 # Source info
 . info.sh
 
