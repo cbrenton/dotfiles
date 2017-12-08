@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# Load info for this machine
+. ./info.sh
+
+if [ -z "$GIT_EMAIL" ]; then
+  echo "Fill in info.sh then rerun this script."
+  exit
+fi
+
 replace () {
   FILE=".$1"
   if [ -e $HOME/$FILE ] && [ ! -L $HOME/$FILE ]
@@ -46,8 +54,7 @@ fi
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-GIT_EMAIL="chrisbrenton@gmail.com"
-git config --global user.name "Chris Brenton"
+git config --global user.name "$GIT_NAME"
 git config --global user.email "$GIT_EMAIL"
 
 # Generate ssh key.

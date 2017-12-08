@@ -1,11 +1,12 @@
 #!/bin/sh -ex
 
-# Run steps that require sudo.
+# Source info
+. info.sh
 
+# Run steps that require sudo.
 ./mac_sudo_install.sh
 
 # Steps that require non-sudo. Used mostly for brew/pip packages.
-
 brew_install() {
   brew install "$1" || true
 }
