@@ -9,12 +9,13 @@ if [ -z "$GIT_EMAIL" ]; then
 fi
 
 replace () {
-  FILE=".$1"
-  if [ -e $HOME/$FILE ] && [ ! -L $HOME/$FILE ]
+  FILE=$(basename $1)
+  FILE_DEST=".$FILE"
+  if [ -e $HOME/$FILE_DEST ] && [ ! -L $HOME/$FILE_DEST ]
   then
-    mv $HOME/$FILE $HOME/$FILE.old
+    mv $HOME/$FILE_DEST $HOME/.$FILE.old
   fi
-  ln -sf $HOME/.dotfiles/$1 $HOME/$FILE
+  ln -sf $1 $HOME/$FILE_DEST
 }
 
 replace_dir () {
@@ -26,12 +27,8 @@ replace_dir () {
   ln -snf $HOME/.dotfiles/$1 $HOME/$DIR
 }
 
-for file in "vimrc" \
-  "zshrc" \
-  "aliases" \
-  "tmux.conf" \
-  "gitconfig"; do
-  replace "${file}"
+for file in $PWD/configs/*; do
+  replace $file
 done
 
 replace_dir "vim"
