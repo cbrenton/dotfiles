@@ -8,6 +8,9 @@ if [ -z "$GIT_EMAIL" ]; then
   exit
 fi
 
+# Install oh-my-zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" || true
+
 replace () {
   FILE=$(basename $1)
   FILE_DEST=".$FILE"

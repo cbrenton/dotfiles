@@ -26,6 +26,9 @@ for package in "reattach-to-user-namespace" \
   brew_install "${package}"
 done
 
+# Install tldr.sh
+npm install -g tldr
+
 # Install generic stuff
 ./install.sh
 
