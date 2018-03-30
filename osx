@@ -25,9 +25,9 @@ if [ -z "$MY_HOSTNAME" ]; then
 fi
 
 # Set computer name (as done via System Preferences → Sharing)
-sudo scutil --set ComputerName "$HOSTNAME"
-sudo scutil --set HostName "$HOSTNAME"
-sudo scutil --set LocalHostName "$HOSTNAME"
+sudo scutil --set ComputerName "$MY_HOSTNAME"
+sudo scutil --set HostName "$MY_HOSTNAME"
+sudo scutil --set LocalHostName "$MY_HOSTNAME"
 sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$HOSTNAME"
 
 # Set standby delay to 24 hours (default is 1 hour)

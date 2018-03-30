@@ -1,6 +1,6 @@
 [user]
 	name = Chris Brenton
-	email = chrisbrenton@gmail.com
+	email = 
 [alias]
 	co = checkout
 	ci = commit
