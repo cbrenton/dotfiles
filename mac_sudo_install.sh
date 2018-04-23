@@ -4,9 +4,6 @@
 
 xcode-select --install || true
 
-# Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" || true
-
 git config --global credential.helper osxkeychain
 
 # Install mononoki font
@@ -18,3 +15,9 @@ pip install --upgrade pip
 pip install virtualenv
 pip install virtualenvwrapper
 pip install ipython
+
+pip3 install --upgrade distribute
+pip3 install --upgrade pip
+pip3 install virtualenv
+pip3 install virtualenvwrapper
+pip3 install ipython

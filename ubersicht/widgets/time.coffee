@@ -21,7 +21,7 @@ render: (output) -> "#{output}"
 style: """
   /*color: #0E2C51*/
   color: #FFFFFF
-  font-family: mononoki
+  font-family: mononoki Nerd Font
   font-size: 11px
   font-smoothing: antialiased
   right: 5px

@@ -68,3 +68,4 @@ alias map="xargs -n1"
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
 rg() { grep $* ./* -r}
+rf() { find . -name "$*" }

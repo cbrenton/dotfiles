@@ -1,4 +1,4 @@
-command: 'echo "try to be better"'
+command: 'echo "nobody said it would be easy"'
 
 # the refresh frequency in milliseconds
 refreshFrequency: 1000
@@ -8,7 +8,7 @@ render: (output) -> "#{output}"
 style: """
   /*color: #0E2C51*/
   color: #FFFFFF
-  font-family: mononoki
+  font-family: mononoki Nerd Font
   font-size: 11px
   font-smoothing: antialiased
   left: 5px
