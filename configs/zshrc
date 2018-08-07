@@ -97,7 +97,7 @@ export PATH=$PATH:$GOROOT/bin
 
 source $HOME/.aliases
 if [[ -e $HOME/.workaliases ]]; then
-	source $HOME/.workaliases
+   source $HOME/.workaliases
 fi
 
 ########################
