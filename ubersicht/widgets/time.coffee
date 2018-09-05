@@ -10,7 +10,7 @@
 command: 'echo `date "+%l:%M %p"` "/" `TZ=":Asia/Hong_Kong" date "+%l:%M %p %a"`'
 
 # the refresh frequency in milliseconds
-refreshFrequency: 1000
+refreshFrequency: '1s'
 
 # render gets called after the shell command has executed. The command's output
 # is passed in as a string. Whatever it returns will get rendered as HTML.
