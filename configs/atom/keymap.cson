@@ -1,0 +1,11 @@
+'.editor:not(.mini)':
+  'cmd-i': 'window:toggle-invisibles'
+'body':
+  'ctrl-tab ^ctrl': 'unset!'
+  'ctrl-tab': 'pane:show-next-item'
+  'ctrl-shift-tab ^ctrl': 'unset!'
+  'ctrl-shift-tab': 'pane:show-previous-item'
+'atom-text-editor.vim-mode-plus:not(.insert-mode)':
+  'space w': 'core:save'
+  'space q': 'pane:close'
+  'space Q': 'user:forceclose'

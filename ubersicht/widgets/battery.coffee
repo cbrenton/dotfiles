@@ -6,7 +6,6 @@ refreshFrequency: 1000
 render: (output) -> "#{output}"
 
 style: """
-  /*color: #0E2C51*/
   color: #FFFFFF
   font-family: mononoki Nerd Font
   font-size: 11px
