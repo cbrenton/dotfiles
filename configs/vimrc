@@ -164,8 +164,5 @@ let g:ctrlp_working_path_mode = 'ra'
 " Vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 
-" Use Pathogen.
-execute pathogen#infect()
-
 " Disable minibufexplorer. Ugh.
 let g:loaded_minibufexplorer=1
