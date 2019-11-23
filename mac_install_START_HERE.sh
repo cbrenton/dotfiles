@@ -25,7 +25,7 @@ brew_cask_install() {
 # Install tools
 for package in "reattach-to-user-namespace" \
   "git" \
-  "vim" \
+  "neovim" \
   "tmux" \
   "python" \
   "node" \
