@@ -27,6 +27,7 @@ done
 
 # @TODO: make this better
 ln -snf $PWD/configs/_config/nvim $HOME/.config/nvim
+ln -snf $PWD/configs/_plug.vim $HOME/.local/share/nvim/site/autoload/plug.vim
 
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )
