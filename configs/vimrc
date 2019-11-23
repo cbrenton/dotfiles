@@ -140,6 +140,13 @@ au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
+" Run clang-format on save
+function! Formatonsave()
+  let l:formatdiff = 1
+  pyf /usr/local/Cellar/clang-format/2018-08-24/share/clang/clang-format.py
+endfunction
+autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
+
 ca tn tabnew
 ca th tabp
 ca tl tabn
