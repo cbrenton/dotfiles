@@ -90,6 +90,7 @@ then
 fi
 
 export PATH=$PATH:/usr/local/opt/ccache/libexec
+export PATH=$PATH:/Library/TeX/texbin
 
 export EDITOR=vim
 export GIT_EDITOR=vim
