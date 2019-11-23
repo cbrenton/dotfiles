@@ -139,13 +139,6 @@ au FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 au BufNewFile,BufRead *.frag,*.vert,*.fp,*.vp,*.glsl setf glsl
 
-" Run clang-format on save
-function! Formatonsave()
-  let l:formatdiff = 1
-  pyf /usr/local/Cellar/clang-format/2018-08-24/share/clang/clang-format.py
-endfunction
-autocmd BufWritePre *.h,*.cc,*.cpp call Formatonsave()
-
 ca tn tabnew
 ca th tabp
 ca tl tabn
@@ -171,8 +164,14 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'Vimjas/vim-python-pep8-indent'
 Plug 'tpope/vim-sensible'
+Plug 'sbdchd/neoformat'
 
 call plug#end()
+
+" Neoformat
+let g:neoformat_enabled_python = ['black']
+let g:neoformat_enabled_cpp = ['clang-format']
+autocmd BufWritePre *.h,*.cc,*.cpp,*.py Neoformat
 
 " Disable minibufexplorer. Ugh.
 let g:loaded_minibufexplorer=1
