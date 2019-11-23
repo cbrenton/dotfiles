@@ -94,8 +94,8 @@ export PATH=$PATH:/Library/TeX/texbin
 
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 
-export EDITOR=vim
-export GIT_EDITOR=vim
+export EDITOR=nvim
+export GIT_EDITOR=nvim
 
 autoload -U compinit
 compinit
