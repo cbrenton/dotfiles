@@ -32,7 +32,6 @@ set tabstop=2           " spaces used to represent tab characters in a file
    set laststatus=2        " make airline statusbar appear in all windows
    set nocompatible
    set number              " turn on line numbers
-   set path=~/Code/**      " sets path to the Code directory
    set ruler
    set showbreak=+++\ \    " make breaks more obvious
    set showcmd             " show commands in status line when typing
