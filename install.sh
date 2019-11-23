@@ -21,9 +21,12 @@ replace () {
   ln -snf $1 $HOME/$FILE_DEST
 }
 
-for file in $PWD/configs/*; do
+for file in $PWD/configs/[^_]*; do
   replace $file
 done
+
+# @TODO: make this better
+ln -snf $PWD/configs/_config/nvim $HOME/.config/nvim
 
 FOUND=false
 omzDirs=( ".oh-my-zsh" ".omz" )
