@@ -164,5 +164,15 @@ let g:ctrlp_working_path_mode = 'ra'
 " Vim-markdown settings
 let g:vim_markdown_folding_disabled = 1
 
+" Vim-plug
+call plug#begin(stdpath('data').'/plugged')
+
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'Vimjas/vim-python-pep8-indent'
+Plug 'tpope/vim-sensible'
+
+call plug#end()
+
 " Disable minibufexplorer. Ugh.
 let g:loaded_minibufexplorer=1
