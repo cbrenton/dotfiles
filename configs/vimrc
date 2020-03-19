@@ -24,6 +24,7 @@ set tabstop=2           " spaces used to represent tab characters in a file
    set cinoptions=:0,p0,t0
    set cinwords=if,unless,else,while,until,do,for,switch,case
    set cursorline          " current line highlight
+   set cursorcolumn        " current line col highlight
    set expandtab           " don't output tabs; replace with spaces
    set formatoptions=tcqr
    set hlsearch            " highlight search terms
@@ -57,8 +58,8 @@ cmap w!! %!sudo tee > /dev/null %
 
 " Place temporary files in a single location, rather than the current
 " directory.
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=/var/tmp,/tmp
+set directory=/var/tmp,/tmp
 
 " Set leader to something reasonable.
 let mapleader = "\<Space>"
