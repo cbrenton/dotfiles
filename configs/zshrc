@@ -87,6 +87,8 @@ then
    export PATH=$PATH:/usr/local/sbin
    export PATH=$PATH:/sbin
    export PATH=$PATH:/usr/X11/bin
+   # export PATH=/usr/local/opt/llvm@9/bin:$PATH
+   export CPATH=`xcrun --show-sdk-path`/usr/include
 fi
 
 export PATH=$PATH:/usr/local/opt/ccache/libexec
@@ -112,6 +114,15 @@ export GOROOT=$(brew --prefix golang)/libexec
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
+
+#######
+# G3D #
+#######
+export g3d=~/g3d
+export G3D10DATA=$g3d/G3D10/data-files:$g3d/data10/common:$g3d/data10/game:$g3d/data10/research
+export INCLUDE=$g3d/G3D10/external/glew.lib/include:$g3d/G3D10/external/glfw.lib/include:$g3d/G3D10/external/civetweb.lib/include:$g3d/G3D10/external/qrencode.lib/include:$g3d/G3D10/external/zlib.lib/include:$g3d/G3D10/external/physx/include:$g3d/G3D10/G3D-base.lib/include:$g3d/G3D10/G3D-gfx.lib/include:$g3d/G3D10/G3D-app.lib/include:$g3d/G3D10/external/tbb/include:$g3d/G3D10/external/glslang/glslang:$INCLUDE
+export LIBRARY=$g3d/G3D10/build/lib:$g3d/G3D10/build/bin:$LIBRARY
+export PATH=$PATH:$g3d/G3D10/build/bin
 
 ###########
 # ALIASES #

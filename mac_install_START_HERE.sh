@@ -29,7 +29,8 @@ for package in "reattach-to-user-namespace" \
   "tmux" \
   "python" \
   "node" \
-  "wget"; do
+  "wget" \
+  "llvm@9"; do
   brew_install "${package}"
 done
 
