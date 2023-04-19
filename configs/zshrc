@@ -74,7 +74,7 @@ setopt hist_save_no_dups
 ################
 
 # Homebrew python first
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+export PATH="/opt/homebrew/bin/python3:$PATH"
 
 if [ $OS = "osx" ]
 then
@@ -93,15 +93,6 @@ fi
 
 export PATH=$PATH:/usr/local/opt/ccache/libexec
 export PATH=$PATH:/Library/TeX/texbin
-
-export JAVA_8_HOME=$(/usr/libexec/java_home -v1.8)
-export JAVA_11_HOME=$(/usr/libexec/java_home -v11)
-
-alias java8='export JAVA_HOME=$JAVA_8_HOME'
-alias java11='export JAVA_HOME=$JAVA_11_HOME'
-
-# default to java 11
-java11
 
 export EDITOR=nvim
 export GIT_EDITOR=nvim
@@ -122,15 +113,6 @@ export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
 
-#######
-# G3D #
-#######
-export g3d=~/g3d
-export G3D10DATA=$g3d/G3D10/data-files:$g3d/data10/common:$g3d/data10/game:$g3d/data10/research
-export INCLUDE=$g3d/G3D10/external/glew.lib/include:$g3d/G3D10/external/glfw.lib/include:$g3d/G3D10/external/civetweb.lib/include:$g3d/G3D10/external/qrencode.lib/include:$g3d/G3D10/external/zlib.lib/include:$g3d/G3D10/external/physx/include:$g3d/G3D10/G3D-base.lib/include:$g3d/G3D10/G3D-gfx.lib/include:$g3d/G3D10/G3D-app.lib/include:$g3d/G3D10/external/tbb/include:$g3d/G3D10/external/glslang/glslang:$INCLUDE
-export LIBRARY=$g3d/G3D10/build/lib:$g3d/G3D10/build/bin:$LIBRARY
-export PATH=$PATH:$g3d/G3D10/build/bin
-
 ###########
 # ALIASES #
 ###########
@@ -147,7 +129,7 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/Devel
 export VIRTUALENVWRAPPER_PYTHON=$(which python3)
-source /usr/local/bin/virtualenvwrapper.sh
+source /opt/homebrew/bin/virtualenvwrapper.sh
 
 ####################
 # CUSTOM FUNCTIONS #
@@ -261,3 +243,6 @@ ssh-reagent ()
  
     echo 'Cannot find ssh agent - maybe you should reconnect and forward it?' 1>&2
 }
+export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
+
+eval "$(rbenv init - zsh)"

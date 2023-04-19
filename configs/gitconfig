@@ -1,6 +1,6 @@
 [user]
-	name = 
-	email = 
+	name = Chris Brenton
+	email = chris@rubyridge.org
 [alias]
 	co = checkout
 	ci = commit

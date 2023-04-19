@@ -159,7 +159,7 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:vim_markdown_folding_disabled = 1
 
 " Vim-plug
-call plug#begin(stdpath('data').'/plugged')
+call plug#begin()
 
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'vim-airline/vim-airline'
