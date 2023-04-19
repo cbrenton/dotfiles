@@ -10,11 +10,11 @@ git config --global credential.helper osxkeychain
 cp ./resources/mononoki-patched.ttf /Library/Fonts
 
 # Upgrade pip
-pip install --upgrade distribute
-pip install --upgrade pip
-pip install virtualenv
-pip install virtualenvwrapper
-pip install ipython
+# pip install --upgrade distribute
+# pip install --upgrade pip
+# pip install virtualenv
+# pip install virtualenvwrapper
+# pip install ipython
 
 pip3 install --upgrade distribute
 pip3 install --upgrade pip
