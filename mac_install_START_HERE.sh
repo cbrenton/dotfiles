@@ -30,6 +30,7 @@ for package in "reattach-to-user-namespace" \
   "python" \
   "node" \
   "wget" \
+  "rbenv" \
   "llvm@9"; do
   brew_install "${package}"
 done
