@@ -63,4 +63,4 @@ xcode-select --install || true
 git config --global credential.helper osxkeychain
 
 # Set macOS preferences - we will run this last because this will reload the shell
-source ./.macos
+. ./.macos
