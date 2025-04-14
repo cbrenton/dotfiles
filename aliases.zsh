@@ -46,9 +46,6 @@ alias grb='git rebase'
 # Undo git commit amend
 alias gua='git reset --soft @{1} && git commit -C @{1}'
 alias lg='git lg'
-alias nuke='git clean -df && git reset --hard'
-alias unstage='git restore --staged .'
-alias wip='commit wip'
 
 alias scp='scp -pr'
 alias mkdir='mkdir -p'

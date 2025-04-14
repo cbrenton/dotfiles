@@ -6,11 +6,8 @@ echo "Setting up your Mac..."
 cp -n ./info.template ./info.sh || true
 vi ./info.sh || true
 
-# Source info
-. info.sh
-
-git config --global user.name "$GIT_NAME"
-git config --global user.email "$GIT_EMAIL"
+# Git config
+. git.sh
 
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
