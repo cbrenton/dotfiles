@@ -33,28 +33,8 @@ TARGET_DIR="$HOME"
 
 shopt -s nullglob dotglob  # dotglob includes hidden files
 
-for file in "$DOTFILES_DIR"/.*; do
-  filename=$(basename "$file")
-
-  # skip . and ..
-  [[ "$filename" == "." || "$filename" == ".." ]] && continue
-
-  target="$TARGET_DIR/$filename"
-
-  # Backup if needed
-  if [[ -e "$target" && ! -L "$target" ]]; then
-    echo "Backing up $target to $target.backup"
-    mv "$target" "$target.backup"
-  fi
-
-  # Remove existing symlink
-  if [[ -L "$target" ]]; then
-    rm "$target"
-  fi
-
-  ln -s "$file" "$target"
-  echo "Linked $file → $target"
-done
+# Symlink config files
+sh ./replace.sh
 
 echo "TODO: nvim config"
 
