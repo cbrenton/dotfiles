@@ -75,9 +75,6 @@ setopt hist_save_no_dups
 # GENERAL/PATH #
 ################
 
-# Homebrew python first
-export PATH="/opt/homebrew/bin/python3:$PATH"
-
 if [ $OS = "osx" ]
 then
    export PATH=$PATH:/opt/local/bin

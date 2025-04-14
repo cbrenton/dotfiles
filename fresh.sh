@@ -15,8 +15,8 @@ if test ! $(which omz); then
 fi
 
 # Install omz theme
-file=./cbr.zsh.theme
-target=$HOME/.oh-my-zsh/themes/cbr.zsh.theme
+file=$HOME/.dotfiles/cbr.zsh-theme
+target=$HOME/.oh-my-zsh/themes/cbr.zsh-theme
 ln -s "$file" "$target"
 echo "Linked $file → $target"
 
