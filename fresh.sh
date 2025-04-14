@@ -9,6 +9,9 @@ vi ./info.sh || true
 # Source info
 . info.sh
 
+git config --global user.name "$GIT_NAME"
+git config --global user.email "$GIT_EMAIL"
+
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
