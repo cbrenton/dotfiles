@@ -14,6 +14,12 @@ if test ! $(which omz); then
   /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/HEAD/tools/install.sh)"
 fi
 
+# Install omz theme
+file=./cbr.zsh.theme
+target=$HOME/.oh-my-zsh/themes/cbr.zsh.theme
+ln -s "$file" "$target"
+echo "Linked $file → $target"
+
 # Check for Homebrew and install if we don't have it
 if test ! $(which brew); then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
