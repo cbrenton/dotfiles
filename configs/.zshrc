@@ -26,6 +26,8 @@ esac
 # OMZ #
 #######
 
+export ZSH_CUSTOM=$HOME/.dotfiles/
+
 OMZDIR=".oh-my-zsh"
 
 # Path to your oh-my-zsh configuration.
@@ -117,7 +119,9 @@ export PATH=$PATH:$GOROOT/bin
 # ALIASES #
 ###########
 
-source $HOME/.aliases
+if [[ -e $HOME/.aliases ]]; then
+  source $HOME/.aliases
+fi
 if [[ -e $HOME/.workaliases ]]; then
    source $HOME/.workaliases
 fi

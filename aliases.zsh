@@ -1,6 +1,6 @@
 alias reboot="sudo reboot"
 alias shutdown="sudo shutdown -h now"
-alias aed="vim $HOME/.aliases"
+alias aed="vim $HOME/.dotfiles/aliases.zsh"
 alias zed="vim $HOME/.zshrc"
 alias rez="source $HOME/.zshrc"
 alias ved="vim $HOME/.vimrc"
