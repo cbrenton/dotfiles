@@ -15,7 +15,6 @@ brew 'ruby-build'
 brew 'svn' # Needed to install fonts
 brew 'tmux'
 brew 'wget'
-brew 'obsidian'
 
 # Apps
 cask '1password'
@@ -29,6 +28,8 @@ cask 'ubersicht'
 cask 'keepingyouawake'
 cask 'flux'
 cask 'phoenix'
+cask 'obsidian'
+cask 'box-drive'
 
 # Fonts
 cask 'font-mononoki-nerd-font'
