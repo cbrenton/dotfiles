@@ -15,6 +15,7 @@ brew 'ruby-build'
 brew 'svn' # Needed to install fonts
 brew 'tmux'
 brew 'wget'
+brew 'k9s'
 
 # Apps
 cask '1password'
