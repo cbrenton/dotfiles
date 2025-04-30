@@ -11,7 +11,6 @@ git config --global alias.unwip "!git log -n 1 | grep -q -c wip && git reset HEA
 git config --global alias.rb "rebase"
 git config --global alias.nuke "!git clean -df && git reset --hard"
 git config --global alias.unstage "git restore --staged"
-git config --global alias.wip "commit wip"
 
 # Push default behavior
 git config --global push.default "current"
