@@ -45,6 +45,8 @@ alias gdl='git diff HEAD^'
 alias grb='git rebase'
 # Undo git commit amend
 alias gua='git reset --soft @{1} && git commit -C @{1}'
+alias grh='git reset --hard HEAD'
+alias grs='git reset --soft HEAD~'
 alias lg='git lg'
 
 alias scp='scp -pr'

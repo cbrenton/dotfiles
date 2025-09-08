@@ -3,11 +3,11 @@
 echo "Setting up your Mac..."
 
 # Force creation of info.sh
-cp -n ./info.template ./info.sh || true
-vi ./info.sh || true
+cp -n ./info.template ./scripts/info.sh || true
+vi ./scripts/info.sh || true
 
 # Git config
-. git.sh
+. scripts/git.sh
 
 # Check for Oh My Zsh and install if we don't have it
 if test ! $(which omz); then
@@ -34,7 +34,7 @@ TARGET_DIR="$HOME"
 shopt -s nullglob dotglob  # dotglob includes hidden files
 
 # Symlink config files
-sh ./replace.sh
+sh ./scripts/replace.sh
 
 echo "TODO: nvim config"
 
@@ -43,22 +43,57 @@ brew update
 
 # Install all our dependencies with bundle (See Brewfile)
 brew tap homebrew/bundle
-brew bundle --file ./Brewfile
+
+# Confirm Brewfiles exist
+COMMON="Brewfile.common"
+WORK="Brewfile.work"
+PERSONAL="Brewfile.personal"
+
+for f in "$COMMON" "$WORK" "$PERSONAL"; do
+  if [[ ! -f "$f" ]]; then
+    echo "Warning: $f not found in $(pwd)"
+  fi
+done
+
+echo "Select mode:"
+echo "  1) Personal"
+echo "  2) Work"
+
+choice=""
+while [[ -z "${choice:-}" ]]; do
+  read -rp "Enter your choice: " input
+  case "${input:-}" in
+    1) choice="personal";;
+    2) choice="work";;
+    *) echo "Invalid selection. Please enter 1 or 2.";;
+  esac
+done
+
+echo "Running 'brew bundle' for common packages..."
+brew bundle --file="$COMMON"
+if [[ "$choice" == "work" ]]; then
+  echo "Running 'brew bundle' for WORK packages..."
+  brew bundle --file="$WORK"
+else
+  echo "Running 'brew bundle' for PERSONAL packages..."
+  brew bundle --file="$PERSONAL"
+fi
 
 curl -sSL https://get.rvm.io | bash
 
-# Create a projects directories
+# Create a projects directory
 mkdir $HOME/code
-
-# Create Code subdirectories
 mkdir $HOME/code/junk
-
-# Symlink the Mackup config file to the home directory
-ln -s ./.mackup.cfg $HOME/.mackup.cfg
 
 [ `whoami` = root ] || { sudo "$0" "$@"; exit $?; }
 
-xcode-select --install || true
+# Check if Xcode Command Line Tools are installed
+if ! xcode-select -p &>/dev/null; then
+  echo "Xcode Command Line Tools not found. Installing..."
+  xcode-select --install
+else
+  echo "Xcode Command Line Tools already installed."
+fi
 
 git config --global credential.helper osxkeychain
 

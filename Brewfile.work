@@ -1,0 +1,8 @@
+# Binaries
+brew 'awscli'
+brew 'k9s'
+
+# Apps
+cask '1password'
+cask 'slack'
+cask 'tuple'

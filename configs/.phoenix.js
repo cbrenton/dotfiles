@@ -27,6 +27,13 @@ const leftHalf = {
   bottom: 0,
 };
 
+const leftQuarter = {
+  left: 0,
+  top: 0,
+  right: 0.75,
+  bottom: 0,
+};
+
 const lowerLeftHalf = {
   left: 0,
   top: 0.5,
@@ -81,19 +88,11 @@ guakeApp({
   followsMouse: true,
   hideOnBlur: false,
 });
-// guakeApp({
-//   key: "r",
-//   modifiers: ["alt"],
-//   appName: "Roam Research",
-//   position: rightHalf,
-//   followsMouse: true,
-//   hideOnBlur: false,
-// });
 guakeApp({
-  key: "c",
+  key: "g",
   modifiers: ["alt"],
   appName: "Goose",
-  position: lowerLeftHalf,
+  position: leftQuarter,
   followsMouse: true,
   hideOnBlur: false,
 });
