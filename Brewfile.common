@@ -1,5 +1,6 @@
 # Binaries
 brew 'bash' # Latest Bash version
+cask 'chatgpt'
 brew 'coreutils' # Those that come with macOS are outdated
 brew 'gh'
 brew 'git'
