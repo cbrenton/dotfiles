@@ -16,19 +16,24 @@ brew 'tmux'
 brew 'wget'
 
 # Apps
+cask 'box-drive'
+cask 'FelixKratz/formulae/sketchybar'
+cask 'FelixKratz/formulae/borders'
 cask 'firefox'
-cask 'google-chrome'
-cask 'visual-studio-code'
-cask 'kitty'
-cask 'ubersicht'
-cask 'keepingyouawake'
 cask 'flux'
+cask 'google-chrome'
+cask 'kitty'
+cask 'keepingyouawake'
+cask 'nikitabobko/tap/aerospace'
 cask 'phoenix'
 cask 'obsidian'
-cask 'box-drive'
+cask 'sf-symbols'
+cask 'ubersicht'
+cask 'visual-studio-code'
 
 # Fonts
 cask 'font-mononoki-nerd-font'
+cask 'font-hack-nerd-font'
 
 # Mac App Store
 # mas 'Byword', id: 420212497
