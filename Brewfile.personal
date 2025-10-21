@@ -1,2 +1,7 @@
 # Apps
+cask 'dotnet-sdk'
+cask 'plex-media-server'
+cask 'steam'
+cask 'transmission'
 cask 'unity'
+cask 'vlc'

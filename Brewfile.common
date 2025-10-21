@@ -17,8 +17,9 @@ brew 'wget'
 
 # Apps
 cask 'box-drive'
-cask 'FelixKratz/formulae/sketchybar'
+cask 'nikitabobko/tap/aerospace'
 cask 'FelixKratz/formulae/borders'
+cask 'FelixKratz/formulae/sketchybar'
 cask 'firefox'
 cask 'flux'
 cask 'google-chrome'
@@ -30,6 +31,8 @@ cask 'obsidian'
 cask 'sf-symbols'
 cask 'ubersicht'
 cask 'visual-studio-code'
+cask 'box-drive'
+cask 'spotify'
 
 # Fonts
 cask 'font-mononoki-nerd-font'

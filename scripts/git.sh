@@ -1,4 +1,4 @@
-. ./info.sh
+. ./scripts/info.sh
 
 # Git aliases
 git config --global alias.co "checkout"

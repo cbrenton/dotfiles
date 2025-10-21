@@ -79,11 +79,33 @@ else
   brew bundle --file="$PERSONAL"
 fi
 
+# Linux
+VSCODE_DIR="$HOME/.config/Code/User"
+# macOS
+if [[ "$(uname)" == "Darwin" ]]; then
+  VSCODE_DIR="$HOME/Library/Application Support/Code/User"
+fi
+KEYBINDINGS="$VSCODE_DIR/keybindings.json"
+
+# Write new keybindings
+cat > "$KEYBINDINGS" <<'EOF'
+[
+  {
+    "key": "ctrl+tab",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+shift+tab",
+    "command": "workbench.action.previousEditor"
+  }
+]
+EOF
+
 curl -sSL https://get.rvm.io | bash
 
 # Create a projects directory
-mkdir $HOME/code
-mkdir $HOME/code/junk
+mkdir -p $HOME/code/junk
+mkdir -p $HOME/media/tv $HOME/media/movies
 
 [ `whoami` = root ] || { sudo "$0" "$@"; exit $?; }
 

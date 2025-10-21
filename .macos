@@ -18,7 +18,7 @@ while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 ###############################################################################
 
 # Load info for this machine
-. ./info.sh
+. ./scripts/info.sh
 
 if [ -z "$MY_HOSTNAME" ]; then
   echo "Fill in info.sh then rerun this script."
@@ -38,12 +38,12 @@ sudo nvram SystemAudioVolume=" "
 defaults write com.apple.universalaccess reduceTransparency -bool true
 
 # Menu bar: hide the Time Machine, Volume, and User icons
-for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
-	defaults write "${domain}" dontAutoLoad -array \
-		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
-		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
-		"/System/Library/CoreServices/Menu Extras/User.menu"
-done
+# for domain in ~/Library/Preferences/ByHost/com.apple.systemuiserver.*; do
+# 	defaults write "${domain}" dontAutoLoad -array \
+# 		"/System/Library/CoreServices/Menu Extras/TimeMachine.menu" \
+# 		"/System/Library/CoreServices/Menu Extras/Volume.menu" \
+# 		"/System/Library/CoreServices/Menu Extras/User.menu"
+# done
 defaults write com.apple.systemuiserver menuExtras -array \
 	"/System/Library/CoreServices/Menu Extras/Bluetooth.menu" \
 	"/System/Library/CoreServices/Menu Extras/AirPort.menu" \
@@ -175,6 +175,7 @@ defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
 defaults write NSGlobalDomain KeyRepeat -int 1
+echo "like eli I did it"
 defaults write NSGlobalDomain InitialKeyRepeat -int 15
 
 # Set language and text formats
