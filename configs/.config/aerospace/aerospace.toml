@@ -113,12 +113,13 @@ cmd-m = []
 #alt-f = 'exec-and-forget open -a /Applications/Finder.app'
 #alt-f = 'exec-and-forget osascript -e 'tell application "Finder" to make new Finder window''
 alt-f = 'exec-and-forget osascript -e "tell application \"Finder\" to activate" -e "tell application \"Finder\" to make new Finder window"'
+alt-enter = 'exec-and-forget open -na /Applications/Kitty.app'
 alt-b = 'exec-and-forget open -a /Applications/Firefox.app'
 alt-c = 'exec-and-forget open -a /Applications/Cursor.app'
 #alt-enter = 'exec-and-forget open -a /Applications/Kitty.app'
 alt-s = 'exec-and-forget open -a /Applications/Slack.app'
 #alt-w = 'exec-and-forget open -a /Applications/Obsidian.app'
-alt-w = 'close'
+alt-w = 'close --quit-if-last-window'
 #alt-n = 'exec-and-forget open -a /Applications/Notion.app'
 alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
 alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
@@ -212,9 +213,9 @@ if.app-id ='com.spotify.client'
 run = ['move-node-to-workspace music']
 
 [[on-window-detected]]
-if.app-id = "com.googlecode.iterm2"
+if.app-id = 'com.googlecode.iterm2'
 #if.window-title-regex-substring = 'scratch'
-run = "layout floating"
+run = ['layout floating']
 
 #[[on-window-detected]]
 #if.app-id ='org.mozilla.Firefox'
