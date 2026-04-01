@@ -111,12 +111,11 @@ cmd-m = []
 
 # App shortcuts
 alt-f = 'exec-and-forget osascript -e "tell application \"Finder\" to activate" -e "tell application \"Finder\" to make new Finder window"'
-alt-enter = 'exec-and-forget open -na /Applications/Kitty.app'
+# alt-enter = 'exec-and-forget open -na /Applications/Kitty.app'
 alt-b = 'exec-and-forget open -a /Applications/Firefox.app'
-alt-c = 'exec-and-forget open -a /Applications/Cursor.app'
-alt-s = 'exec-and-forget open -a /Applications/Slack.app'
 alt-shift-w = 'close --quit-if-last-window'
-alt-a = 'exec-and-forget open -a /Applications/ChatGPT.app'
+alt-s = 'exec-and-forget open -a /Applications/Slack.app'
+alt-w = 'close --quit-if-last-window'
 alt-shift-r = ['exec-and-forget /opt/homebrew/bin/sketchybar --reload']
 
 # See: https://nikitabobko.github.ioeAeroSpace/commands#layout
