@@ -48,6 +48,7 @@ alias gua='git reset --soft @{1} && git commit -C @{1}'
 alias grh='git reset --hard HEAD'
 alias grs='git reset --soft HEAD~'
 alias lg='git lg'
+alias main='git co main'
 
 alias scp='scp -pr'
 alias mkdir='mkdir -p'
