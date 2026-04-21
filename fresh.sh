@@ -103,6 +103,11 @@ EOF
 
 curl -sSL https://get.rvm.io | bash
 
+# Install TPM (Tmux Plugin Manager)
+if [[ ! -d "$HOME/.tmux/plugins/tpm" ]]; then
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
+
 # Create a projects directory
 mkdir -p $HOME/code/junk
 mkdir -p $HOME/media/tv $HOME/media/movies
