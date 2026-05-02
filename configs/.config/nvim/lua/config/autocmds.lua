@@ -15,3 +15,14 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.bo.softtabstop = 4
   end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "python",
+  callback = function()
+    vim.keymap.set("n", "<leader>p", function()
+      local line = vim.api.nvim_win_get_cursor(0)[1]
+      local indent = vim.api.nvim_get_current_line():match("^%s*") or ""
+      vim.api.nvim_buf_set_lines(0, line - 1, line - 1, false, { indent .. "import pdb; pdb.set_trace()" })
+    end, { buffer = true, desc = "Insert pdb breakpoint" })
+  end,
+})
