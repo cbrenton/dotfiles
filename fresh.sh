@@ -36,8 +36,6 @@ shopt -s nullglob dotglob  # dotglob includes hidden files
 # Symlink config files
 sh ./scripts/replace.sh
 
-echo "TODO: nvim config"
-
 # Update Homebrew recipes
 brew update
 
