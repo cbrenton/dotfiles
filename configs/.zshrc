@@ -111,7 +111,6 @@ setopt COMPLETE_IN_WORD
 ##########
 
 export GOPATH=$HOME/go
-export GOROOT=$(brew --prefix golang)/libexec
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOBIN
 export PATH=$PATH:$GOROOT/bin
@@ -244,4 +243,3 @@ export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-. "$HOME/.local/bin/env"
